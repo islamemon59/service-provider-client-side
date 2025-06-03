@@ -1,9 +1,52 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import ContextHook from "../Hooks/ContextHook";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
+  const { signInUser, setUser, signInWithGoogle } = ContextHook();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleSignin = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signInUser(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "Login Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`${error.message}`);
+      });
+  };
+
+    const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "Login Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
   };
 
   return (
@@ -14,9 +57,9 @@ const SignIn = () => {
           <form onSubmit={handleSignin}>
             <fieldset className="fieldset">
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input type="email" name="email" className="input" placeholder="Email" />
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="Password" />
+              <input type="password" name="password" className="input" placeholder="Password" />
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
@@ -34,6 +77,7 @@ const SignIn = () => {
               </p>
               <div className="divider">OR</div>
               <button
+                onClick={handleGoogleLogin}
                 type="button"
                 className="btn w-full bg-secondary-content text-base-content border-[#e5e5e5]"
               >
