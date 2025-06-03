@@ -1,7 +1,27 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
+import ContextHook from "../Hooks/ContextHook";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, signOutUser } = ContextHook();
+    const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOutUser()
+      .then(() => {
+        navigate("/");
+        Swal.fire({
+          title: "Logout Successful",
+          icon: "success",
+          draggable: true,
+        });
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+  };
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -100,43 +120,51 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-4">
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+        {user ? (
+          <div>
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user.photoURL}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
             </div>
+            <button onClick={handleLogout} className="btn">Logout</button>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
-        <Link to="/register" className="">
-          Register
-        </Link>
-        <Link to="/signin" className="btn">
-          Signin
-        </Link>
+        ) : (
+          <>
+            <Link to="/register" className="">
+              Register
+            </Link>
+            <Link to="/signin" className="btn">
+              Signin
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

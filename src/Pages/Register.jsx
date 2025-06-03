@@ -1,9 +1,71 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import ContextHook from "../Hooks/ContextHook";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
+    ContextHook();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (!/^(?=.*[A-Z]).+$/.test(password)) {
+      return toast.error("Must have an Uppercase letter");
+    }
+    if (!/^(?=.*[a-z]).+$/.test(password)) {
+      return toast.error("Must have an Lowercase letter");
+    }
+    if (/^.{6}$/.test(password)) {
+      return toast.error("Length must be at least 6 character");
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "SignUp Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch(() => {});
+        console.log(currentUser);
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "SignUp Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
   };
 
   return (
@@ -18,14 +80,14 @@ const Register = () => {
                 type="text"
                 name="name"
                 className="input"
-                placeholder="Email"
+                placeholder="Name"
               />
               <label className="label">PhotoURL</label>
               <input
                 type="text"
                 name="photo"
                 className="input"
-                placeholder="Email"
+                placeholder="PhotoURL"
               />
               <label className="label">Email</label>
               <input
@@ -55,6 +117,7 @@ const Register = () => {
               </p>
               <div className="divider">OR</div>
               <button
+                onClick={handleGoogleLogin}
                 type="button"
                 className="btn w-full bg-secondary-content text-base-content border-[#e5e5e5]"
               >
