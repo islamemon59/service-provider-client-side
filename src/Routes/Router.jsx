@@ -3,6 +3,7 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
 import Register from "../Pages/Register";
+import ErrorPage from "../Shared/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -22,5 +23,9 @@ export const router = createBrowserRouter([
                 Component: Register
             },
         ]
+    },
+    {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
     }
 ])

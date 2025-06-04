@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, signOutUser } = ContextHook();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     signOutUser()
@@ -96,27 +96,35 @@ const Navbar = () => {
           </label>
         </span>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex font-semibold ">
+        <ul className="menu menu-horizontal px-1 text-l">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+            <NavLink to="/services">Services</NavLink>
           </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+          {user && (
+            <li>
+              <details>
+                <summary>Dashboard</summary>
+                <ul className="p-2 w-36">
+                  <li>
+                    <NavLink to="/addServices">Add Service</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/manageService">Manage Service</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/bookedService">Booked Services</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/serviceToDo">Service-To-Do</NavLink>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end gap-4">
@@ -153,7 +161,9 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <button onClick={handleLogout} className="btn">Logout</button>
+            <button onClick={handleLogout} className="btn">
+              Logout
+            </button>
           </div>
         ) : (
           <>
