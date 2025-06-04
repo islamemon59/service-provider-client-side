@@ -1,10 +1,11 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
   console.log(service);
   const {
+    _id,
     area,
     description,
     imageUrl,
@@ -75,9 +76,9 @@ const ServiceDetails = () => {
           </div>
 
           <div className="pt-2">
-            <button className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600">
+            <Link to={`/bookedServices/${_id}`} className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600">
               Book Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

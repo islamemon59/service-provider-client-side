@@ -9,6 +9,7 @@ import AllServices from "../Pages/AllServices";
 import Loader from "../Shared/Loader";
 import ServiceDetails from "../Pages/ServiceDetails";
 import PrivetRoute from "../Private/PrivetRoute";
+import MyBookedServices from "../Pages/MyBookedServices";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,17 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <ServiceDetails></ServiceDetails>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/bookedServices/:id",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <MyBookedServices></MyBookedServices>
           </PrivetRoute>
         ),
       },
