@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Shared/ErrorPage";
 import AddService from "../Pages/AddService";
 import AllServices from "../Pages/AllServices";
+import Loader from "../Shared/Loader";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services',
+                hydrateFallbackElement: <Loader></Loader>,
+                loader: () => fetch("http://localhost:3000/allServices"),
                 Component: AllServices,
             },
             {
