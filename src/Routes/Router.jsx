@@ -8,44 +8,50 @@ import AddService from "../Pages/AddService";
 import AllServices from "../Pages/AllServices";
 import Loader from "../Shared/Loader";
 import ServiceDetails from "../Pages/ServiceDetails";
+import PrivetRoute from "../Private/PrivetRoute";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        Component: Root,
-        children: [
-            {
-                index: true,
-                Component: Home
-            },
-            {
-                path: '/services',
-                hydrateFallbackElement: <Loader></Loader>,
-                loader: () => fetch("http://localhost:3000/allServices"),
-                Component: AllServices,
-            },
-            {
-                path: '/serviceDetails/:id',
-                hydrateFallbackElement: <Loader></Loader>,
-                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`),
-                Component: ServiceDetails,
-            },
-            {
-                path: '/addServices',
-                Component: AddService,
-            },
-            {
-                path: '/signIn',
-                Component: SignIn
-            },
-            {
-                path: '/register',
-                Component: Register
-            },
-        ]
-    },
-    {
-        path: "*",
-        element: <ErrorPage></ErrorPage>
-    }
-])
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "/services",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: () => fetch("http://localhost:3000/allServices"),
+        Component: AllServices,
+      },
+      {
+        path: "/serviceDetails/:id",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/addServices",
+        Component: AddService,
+      },
+      {
+        path: "/signIn",
+        Component: SignIn,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
+]);
