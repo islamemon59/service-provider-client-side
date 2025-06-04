@@ -38,6 +38,17 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/serviceDetails/:id",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivetRoute>
+        ),
+      },
+      {
         path: "/bookedServices/:id",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
