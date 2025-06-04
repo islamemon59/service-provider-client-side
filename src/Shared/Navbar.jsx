@@ -96,7 +96,7 @@ const Navbar = () => {
           </label>
         </span>
       </div>
-      <div className="navbar-center hidden lg:flex font-semibold ">
+      <div className="navbar-center hidden lg:flex font-semibold z-10">
         <ul className="menu menu-horizontal px-1 text-l">
           <li>
             <NavLink to="/">Home</NavLink>
