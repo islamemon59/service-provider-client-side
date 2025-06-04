@@ -7,6 +7,7 @@ import ErrorPage from "../Shared/ErrorPage";
 import AddService from "../Pages/AddService";
 import AllServices from "../Pages/AllServices";
 import Loader from "../Shared/Loader";
+import ServiceDetails from "../Pages/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,12 @@ export const router = createBrowserRouter([
                 hydrateFallbackElement: <Loader></Loader>,
                 loader: () => fetch("http://localhost:3000/allServices"),
                 Component: AllServices,
+            },
+            {
+                path: '/serviceDetails/:id',
+                hydrateFallbackElement: <Loader></Loader>,
+                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`),
+                Component: ServiceDetails,
             },
             {
                 path: '/addServices',
