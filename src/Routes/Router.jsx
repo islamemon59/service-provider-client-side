@@ -11,6 +11,7 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import PrivetRoute from "../Private/PrivetRoute";
 import MyBookedServices from "../Pages/MyBookedServices";
 import ManageMyServices from "../Pages/ManageMyServices";
+import UpdateServices from "../Pages/UpdateServices";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,17 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <ManageMyServices></ManageMyServices>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/updateServices/:id",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <UpdateServices></UpdateServices>
           </PrivetRoute>
         ),
       },
