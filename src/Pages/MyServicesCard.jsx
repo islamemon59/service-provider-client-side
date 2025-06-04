@@ -1,8 +1,10 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
-const ServiceDetails = () => {
-  const service = useLoaderData();
+const MyServicesCard = ({ service }) => {
+    console.log(service);
+    console.log("card hitted");
   const {
     _id,
     area,
@@ -55,29 +57,14 @@ const ServiceDetails = () => {
             <p className="text-base-content">{description}</p>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-primary">
-              Service Provider
-            </h3>
-            <div className="flex items-center gap-4 mt-2">
-              <img
-                src={providerImage}
-                alt="Provider"
-                className="w-10 h-10 rounded-full  border-2 border-primary hover:border-info"
-              />
-              <div>
-                <p className="text-base-content font-medium">{providerName}</p>
-                <p className="text-sm text-base-content opacity-70">
-                  {providerEmail}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-2">
-            <Link to={`/bookedServices/${_id}`} className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600">
-              Book Now
+          <div className="pt-2 flex justify-center items-center gap-4">
+            <Link
+              to={`/bookedServices/${_id}`}
+              className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600"
+            >
+              <FaEdit />Book Now
             </Link>
+            <button className="btn btn-error px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600"><FaTrashAlt />Delete</button>
           </div>
         </div>
       </div>
@@ -85,4 +72,4 @@ const ServiceDetails = () => {
   );
 };
 
-export default ServiceDetails;
+export default MyServicesCard;

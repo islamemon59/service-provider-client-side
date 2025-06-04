@@ -10,6 +10,7 @@ import Loader from "../Shared/Loader";
 import ServiceDetails from "../Pages/ServiceDetails";
 import PrivetRoute from "../Private/PrivetRoute";
 import MyBookedServices from "../Pages/MyBookedServices";
+import ManageMyServices from "../Pages/ManageMyServices";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <MyBookedServices></MyBookedServices>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/manageService",
+        element: (
+          <PrivetRoute>
+            <ManageMyServices></ManageMyServices>
           </PrivetRoute>
         ),
       },

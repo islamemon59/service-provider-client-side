@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import MyServices from './MyServices';
+import { myServicesPromise } from '../Api/MyServicesApi';
+import ContextHook from '../Hooks/ContextHook';
+import Loader from '../Shared/Loader';
 
 const ManageMyServices = () => {
+    const {user} = ContextHook()
     return (
         <div>
-            
+            <Suspense fallback={<Loader></Loader>}>
+                <MyServices myServicesPromise={myServicesPromise(user?.email)}></MyServices>
+            </Suspense>
         </div>
     );
 };
