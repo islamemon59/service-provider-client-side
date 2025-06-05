@@ -11,7 +11,7 @@ const MyServices = ({ myServicesPromise }) => {
     <div>
       {services.length == 0 ? (
         <div className="mt-10 flex justify-center items-center flex-col">
-            <h1 className="text-center md:text-6xl font-bold text-4xl py-6 text-error">You haven't added any data</h1>
+            <h1 className="text-center md:text-5xl font-bold text-4xl py-6 text-error">You haven't added any data</h1>
             <Lottie style={{width: "250px"}} animationData={noData}></Lottie>
         </div>
       ) : (

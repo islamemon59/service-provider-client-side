@@ -12,6 +12,7 @@ import PrivetRoute from "../Private/PrivetRoute";
 import MyBookedServices from "../Pages/MyBookedServices";
 import ManageMyServices from "../Pages/ManageMyServices";
 import UpdateServices from "../Pages/UpdateServices";
+import BookedServices from "../Pages/BookedServices";
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +80,12 @@ export const router = createBrowserRouter([
             <UpdateServices></UpdateServices>
           </PrivetRoute>
         ),
+      },
+      {
+        path: "/myBooking",
+        element: <PrivetRoute>
+            <BookedServices></BookedServices>
+        </PrivetRoute>
       },
       {
         path: "/addServices",

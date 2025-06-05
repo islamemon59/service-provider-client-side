@@ -84,7 +84,6 @@ const MyBookedServices = () => {
           value={user?.email}
           required
         ></input>
-        {/* textarea textarea-bordered w-full */}
         <input
           type="text"
           name="userName"
