@@ -13,6 +13,7 @@ import MyBookedServices from "../Pages/MyBookedServices";
 import ManageMyServices from "../Pages/ManageMyServices";
 import UpdateServices from "../Pages/UpdateServices";
 import BookedServices from "../Pages/BookedServices";
+import ServiceToDo from "../Pages/ServiceToDo";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,12 @@ export const router = createBrowserRouter([
         path: "/myBooking",
         element: <PrivetRoute>
             <BookedServices></BookedServices>
+        </PrivetRoute>
+      },
+      {
+        path: "/serviceToDo",
+        element: <PrivetRoute>
+            <ServiceToDo></ServiceToDo>
         </PrivetRoute>
       },
       {

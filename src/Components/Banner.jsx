@@ -10,20 +10,21 @@ const Banner = () => {
     <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 8000 }}
         loop={true}
         className="w-full h-full"
       >
         <SwiperSlide>
           <div
-            className="relative w-full h-full bg-cover bg-center"
+            className="relative w-full h-full bg-cover bg-center bg-black-100"
             style={{
               backgroundImage: `url(https://busybeecleaningcompany.com/wp-content/uploads/2017/12/shutterstock_1675607932.jpg)`,
             }}
           >
+            <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
-            <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center flex-col gap-5">
-              <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center px-4">
+            <div className="absolute inset-0  bg-opacity-50 z-10 flex items-center justify-center flex-col gap-5">
+              <h2 className=" text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
                 Reliable Home Cleaning
               </h2>
               <p className=" text-lg md:text-xl text-secondary font-bold text-center px-4 max-w-2xl">
@@ -41,12 +42,13 @@ const Banner = () => {
               backgroundImage: `url(https://fixhunters.com/wp-content/uploads/2024/10/Plumbing-Maintenance-Services-1024x637.jpg)`,
             }}
           >
+            <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
-            <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center flex-col gap-5">
-              <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center px-4">
+            <div className="absolute inset-0  bg-opacity-50 z-10 flex items-center justify-center flex-col gap-5">
+              <h2 className=" text-3xl md:text-6xl text-white font-bold text-center px-4">
                 Expert Plumbing Services
               </h2>
-              <p className=" text-lg md:text-xl text-secondary font-bold text-center px-4 max-w-2xl">
+              <p className="text-lg md:text-xl text-gray-300 font-bold text-center px-4 max-w-2xl">
                 Expert Plumbing Services provide fast, reliable solutions for
                 leaks, repairs, and installations by skilled professionals
                 ensuring quality and customer satisfaction.
