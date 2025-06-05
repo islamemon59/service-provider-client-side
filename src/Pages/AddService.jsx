@@ -2,8 +2,10 @@ import React from "react";
 import ContextHook from "../Hooks/ContextHook";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useTitle from "../Hooks/useTitle";
 
 const AddService = () => {
+  useTitle("Add Service")
   const { user } = ContextHook();
 
   const handleSubmit = (e) => {

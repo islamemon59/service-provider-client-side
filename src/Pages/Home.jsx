@@ -1,7 +1,8 @@
 import Banner from '../Components/Banner';
-import { AuthContext } from '../Context/AuthContext';
+import useTitle from '../Hooks/useTitle';
 
 const Home = () => {
+useTitle("Home")
     return (
         <div>
             <div className='-z-10'> 

@@ -3,8 +3,10 @@ import ContextHook from "../Hooks/ContextHook";
 import MyAllBookedServices from "./MyAllBookedServices";
 import { myBookedServicesPromise } from "../Api/MyBookedApi";
 import Loader from "../Shared/Loader";
+import useTitle from "../Hooks/useTitle";
 
 const BookedServices = () => {
+  useTitle("Booked Services")
   const { user } = ContextHook();
   return (
     <div>

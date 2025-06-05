@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { useLoaderData } from "react-router";
+import useTitle from "../Hooks/useTitle";
 
 const AllServices = () => {
+  useTitle("Services")
   const initialServices = useLoaderData();
   const [services, setServices] = useState(initialServices);
   console.log(initialServices);

@@ -1,11 +1,14 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Navigate, useLoaderData, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useTitle from "../Hooks/useTitle";
 
 const MyBookedServices = () => {
+  useTitle("Purchase Service")
   const service = useLoaderData();
+  const navigate = useNavigate()
   const { user } = ContextHook();
   const { _id, imageUrl, name, price, providerEmail, providerName } = service;
   console.log(service);
@@ -27,7 +30,7 @@ const MyBookedServices = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        console.log(res.data);
+        navigate("/myBooking")
       }
     });
   };

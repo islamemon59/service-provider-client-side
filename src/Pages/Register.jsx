@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useTitle from "../Hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register")
   const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
     ContextHook();
   const location = useLocation();

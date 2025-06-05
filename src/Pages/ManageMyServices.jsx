@@ -3,8 +3,10 @@ import MyServices from './MyServices';
 import { myServicesPromise } from '../Api/MyServicesApi';
 import ContextHook from '../Hooks/ContextHook';
 import Loader from '../Shared/Loader';
+import useTitle from '../Hooks/useTitle';
 
 const ManageMyServices = () => {
+    useTitle("Manage Service")
     const {user} = ContextHook()
     return (
         <div>
