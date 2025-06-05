@@ -27,15 +27,6 @@ const ServiceToDoCard = ({ service }) => {
     })
   }
 
-  // const handleComplete = (Completed) => {
-  //   axios.patch(`http://localhost:3000/status/${_id}`, {serviceStatus: Completed})
-  //   .then(res => {
-  //       if(res.data.modifiedCount){
-  //           setStatus(Completed)
-  //       }
-  //   })
-  // }
-
   return (
     <div className="w-full mx-auto my-6">
       <div className="card bg-gradient-to-br h-full from-base-200 to-base-300 shadow-xl border border-base-300 hover:shadow-2xl transition duration-300">

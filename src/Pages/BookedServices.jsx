@@ -12,7 +12,7 @@ const BookedServices = () => {
     <div>
       <Suspense fallback={<Loader></Loader>}>
         <MyAllBookedServices
-          myBookedServicesPromise={myBookedServicesPromise(user?.email)}
+          myBookedServicesPromise={myBookedServicesPromise(user?.email, user?.accessToken)}
         ></MyAllBookedServices>
       </Suspense>
     </div>

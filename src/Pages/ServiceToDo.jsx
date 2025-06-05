@@ -12,7 +12,7 @@ const ServiceToDo = () => {
         <div>
             <div>
                 <Suspense fallback={<Loader></Loader>}>
-                    <ServiceToDoPromise myServiceToDoPromise={myServiceToDoPromise(user?.email)}></ServiceToDoPromise>
+                    <ServiceToDoPromise myServiceToDoPromise={myServiceToDoPromise(user?.email, user?.accessToken)}></ServiceToDoPromise>
                 </Suspense>
             </div>
         </div>

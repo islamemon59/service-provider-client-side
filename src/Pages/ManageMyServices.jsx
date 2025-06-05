@@ -11,7 +11,7 @@ const ManageMyServices = () => {
     return (
         <div>
             <Suspense fallback={<Loader></Loader>}>
-                <MyServices myServicesPromise={myServicesPromise(user?.email)}></MyServices>
+                <MyServices myServicesPromise={myServicesPromise(user?.email, user?.accessToken)}></MyServices>
             </Suspense>
         </div>
     );

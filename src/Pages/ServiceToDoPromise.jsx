@@ -5,7 +5,6 @@ import ServiceToDoCard from "./ServiceToDoCard";
 
 const ServiceToDoPromise = ({ myServiceToDoPromise }) => {
   const services = use(myServiceToDoPromise);
-  console.log(services);
   return (
     <div>
       {services.length == 0 ? (
