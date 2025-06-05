@@ -18,7 +18,7 @@ const ServiceToDoCard = ({ service }) => {
   
   const [status, setStatus] = useState(serviceStatus)
 
-  const handleWorking = (Working) => {
+  const handleStatus = (Working) => {
     axios.patch(`http://localhost:3000/status/${_id}`, {serviceStatus: Working})
     .then(res => {
         if(res.data.modifiedCount){
@@ -27,14 +27,14 @@ const ServiceToDoCard = ({ service }) => {
     })
   }
 
-  const handleComplete = (Completed) => {
-    axios.patch(`http://localhost:3000/status/${_id}`, {serviceStatus: Completed})
-    .then(res => {
-        if(res.data.modifiedCount){
-            setStatus(Completed)
-        }
-    })
-  }
+  // const handleComplete = (Completed) => {
+  //   axios.patch(`http://localhost:3000/status/${_id}`, {serviceStatus: Completed})
+  //   .then(res => {
+  //       if(res.data.modifiedCount){
+  //           setStatus(Completed)
+  //       }
+  //   })
+  // }
 
   return (
     <div className="w-full mx-auto my-6">
@@ -65,13 +65,13 @@ const ServiceToDoCard = ({ service }) => {
                     tabIndex={0}
                     className="dropdown-content menu text-base-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm"
                   >
-                    <li>
+                    <li onClick={() => handleStatus("Pending")}>
                       <a>Pending</a>
                     </li>
-                    <li onClick={() => handleWorking("Working")}>
+                    <li onClick={() => handleStatus("Working")}>
                       <a>Working</a>
                     </li>
-                    <li onClick={() => handleComplete("Completed")}>
+                    <li onClick={() => handleStatus("Completed")}>
                       <a>Completed</a>
                     </li>
                   </ul>
