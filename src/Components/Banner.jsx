@@ -24,10 +24,10 @@ const Banner = () => {
             <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
             <div className="absolute inset-0  bg-opacity-50 z-10 flex items-center justify-center flex-col gap-5">
-              <h2 className=" text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
+              <h2 className="text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
                 Reliable Home Cleaning
               </h2>
-              <p className=" text-lg md:text-xl text-secondary font-bold text-center px-4 max-w-2xl">
+              <p className="text-lg md:text-xl text-gray-300 font-bold text-center px-4 max-w-2xl">
                 Reliable Home Cleaning offers trusted, eco-friendly services by
                 professionals to keep your home consistently clean, safe, and
                 comfortable.
@@ -59,15 +59,20 @@ const Banner = () => {
         <SwiperSlide>
           <div
             className="relative w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(https://cms.migas.com.au/assets/Uploads/SEO/Blog-Skills-You-Need-to-Become-an-Electrician-SEO.jpg)` }}
+            style={{
+              backgroundImage: `url(https://cms.migas.com.au/assets/Uploads/SEO/Blog-Skills-You-Need-to-Become-an-Electrician-SEO.jpg)`,
+            }}
           >
+            <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
             <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center flex-col gap-5">
-              <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center px-4">
+              <h2 className="text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
                 Skilled Electricians Near You
               </h2>
-              <p className=" text-lg md:text-xl text-secondary font-bold text-center px-4 max-w-2xl">
-                Skilled Electricians Near You offer safe, efficient electrical services for homes and businesses, ensuring expert installations, repairs, and troubleshooting.
+              <p className="text-lg md:text-xl text-gray-300 font-bold text-center px-4 max-w-2xl">
+                Skilled Electricians Near You offer safe, efficient electrical
+                services for homes and businesses, ensuring expert
+                installations, repairs, and troubleshooting.
               </p>
             </div>
           </div>

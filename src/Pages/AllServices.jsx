@@ -1,23 +1,72 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { useLoaderData } from "react-router";
 import useTitle from "../Hooks/useTitle";
+import axios from "axios";
+import searchData from "../assets/search.json";
+import Lottie from "lottie-react";
 
 const AllServices = () => {
-  useTitle("Services")
-  const initialServices = useLoaderData();
-  const [services, setServices] = useState(initialServices);
-  console.log(initialServices);
+  useTitle("Services");
+  const [services, setServices] = useState([]);
+  const [search, setSearch] = useState("");
+  console.log(search);
+  console.log(services);
+
+  useEffect(() => {
+    axios(`http://localhost:3000/allServices?searchParams=${search}`).then(
+      (res) => setServices(res.data)
+    );
+  }, [setServices, search]);
+
   return (
     <div>
-      <div className="my-10">
-        <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center px-4 mb-10 py-6">
-          Our All Services Here
-        </h2>
-        {services.map((service) => (
-          <ServiceCard key={service._id} service={service}></ServiceCard>
-        ))}
+      <div className="my-20">
+        <div className="flex justify-center items-center">
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            name="search"
+            placeholder="Search here"
+            className="input w-[600px]"
+          />
+        </div>
+        <div>
+          {services.length === 0 ? (
+            <div className="flex justify-center items-center flex-col min-h-96">
+              <h1 className="sm:text-5xl text-4xl font-bold text-base-300">
+                No search result
+              </h1>
+              <Lottie
+                style={{ width: "100px" }}
+                animationData={searchData}
+              ></Lottie>
+            </div>
+          ) : (
+            <div>
+              <div className="my-10">
+                <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center">
+                  Our All Services Here
+                </h2>
+                <p className="md:text-lg text-center text-secondary">
+                  Explore all our services in one place—tailored solutions,
+                  expert support, and reliable delivery to meet every need with
+                  professionalism, efficiency, and a commitment to complete
+                  customer satisfaction.
+                </p>
+              </div>
+              <div>
+                {services.map((service) => (
+                  <ServiceCard
+                    key={service._id}
+                    service={service}
+                  ></ServiceCard>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
