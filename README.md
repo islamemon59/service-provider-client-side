@@ -1,12 +1,22 @@
-# React + Vite
+# HelpNest 🏠 – Service Provider Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HelpNest is a service provider web application where users can explore, book, and manage various services. It offers a role-based experience for **customers** and **service providers**, enabling smooth interaction, booking, and service management.
 
-Currently, two official plugins are available:
+## 🔗 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit HelpNest Live](https://your-live-link.com) <!-- Replace this with your actual live link -->
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 **Authentication & Authorization**: User login and signup handled with Firebase; protected routes ensure only authorized users can access specific features.
+- 🛠️ **Service Management**: Service providers can add, edit, and delete their own services; each service is tied to the authenticated provider.
+- 📦 **Customer Booking**: Customers can browse all services and book them; they can view their own booked services securely—other users can’t access them.
+- 📋 **Status Updates**: Providers can track bookings for their services and update the status to "Pending", "Working", or "Complete".
+- 🌐 **Modern Tech Stack**: Built with React, React Router, Tailwind CSS, DaisyUI, Firebase Auth, MongoDB, Express, Axios, and JWT for secure API communication.
+
+## 📁 Assignment Details
+
+- **Project Name:** HelpNest  
+- **Assignment Category:** 02  
+- **Tech Stack:** HTML, CSS, React.js, TailwindCSS, DaisyUI, Firebase, MongoDB, Express.js, Axios, JWT  
+- **Functionality:** Role-based access, secure service management, real-time booking and status updates.
