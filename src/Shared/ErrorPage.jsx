@@ -7,7 +7,7 @@ const ErrorPage = () => {
     return (
         <div className='min-h-screen flex justify-center items-center flex-col'>
             <Lottie animationData={error}></Lottie>
-            <Link to="/" className='btn'>Back to Home</Link>
+            <Link to="/" className='btn btn-primary'>Back to Home</Link>
         </div>
     );
 };

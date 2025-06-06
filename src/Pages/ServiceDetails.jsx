@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router";
 import useTitle from "../Hooks/useTitle";
 
 const ServiceDetails = () => {
-  useTitle("Service Details")
+  useTitle("Service Details");
   const service = useLoaderData();
   const {
     _id,
@@ -38,17 +38,17 @@ const ServiceDetails = () => {
             <p className="text-sm text-base-content opacity-70">
               {providerEmail}
             </p>
+            <p className="text-base-content">
+              <span className="font-semibold">Location:</span> {area}
+            </p>
           </div>
         </div>
 
         <div className="space-y-4">
           <h2 className="text-2xl font-bold text-primary">{name}</h2>
-          <p className="text-base-content">
-            <span className="font-semibold">Price:</span> ৳{price}
-          </p>
-          <p className="text-base-content">
-            <span className="font-semibold">Location:</span> {area}
-          </p>
+          <span className="bg-primary p-1 rounded-md text-base-100">
+            <span className="font-semibold">Price:</span> ৳ {price}
+          </span>
 
           <div>
             <h3 className="text-lg font-semibold text-primary">
@@ -77,7 +77,10 @@ const ServiceDetails = () => {
           </div>
 
           <div className="pt-2">
-            <Link to={`/bookedServices/${_id}`} className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600">
+            <Link
+              to={`/bookedServices/${_id}`}
+              className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600"
+            >
               Book Now
             </Link>
           </div>
