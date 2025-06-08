@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useLoaderData } from "react-router";
 import Banner from "../Components/Banner";
 import useTitle from "../Hooks/useTitle";
@@ -6,6 +7,7 @@ import MarqueeComponent from "../Components/MarqueeComponent";
 import Navbar from "../Shared/Navbar";
 import ServiceCountUp from "../Components/ServiceCountUp";
 import ContactSection from "../Components/ContactSection";
+import { easeIn, motion } from "motion/react";
 
 const Home = () => {
   const services = useLoaderData();
@@ -24,25 +26,69 @@ const Home = () => {
         <MarqueeComponent></MarqueeComponent>
       </section>
 
-      <section  className="bg-[url('https://img.freepik.com/premium-vector/abstract-colorful-banner-background-color-gradient-abstract-background-with-dynamic-wave-line-effect-vector-abstract-graphic-design-banner-pattern-background-web-template_181182-33656.jpg?semt=ais_items_boosted&w=740')] bg-cover bg-center max-w-7xl mx-auto px-10 rounded-xl my-10 shadow-xl hover:shadow-2xl transition duration-300">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          type: "spring",
+          bounce: 5,
+          stiffness: 150,
+          duration: 0.8,
+          delay: 0.5,
+        }}
+        className="bg-[url('https://img.freepik.com/premium-vector/abstract-colorful-banner-background-color-gradient-abstract-background-with-dynamic-wave-line-effect-vector-abstract-graphic-design-banner-pattern-background-web-template_181182-33656.jpg?semt=ais_items_boosted&w=740')] bg-cover bg-center max-w-7xl mx-auto px-10 rounded-xl md:my-24 my-10 shadow-xl"
+      >
         <div className="flex justify-center items-center gap-10">
-          <img className="md:w-36 w-20" src="https://i.ibb.co/Fk2GD0Kn/png-transparent-bargain-product-promotion-action-up-to-date-offer-announcement-sticker-banner-busine.png" alt="offer" />
-          <h1 className="text-white md:text-4xl font-bold">Limited Time Offer – Get 50% Off All Services!</h1>
+          <img
+            className="md:w-36 w-20"
+            src="https://i.ibb.co/Fk2GD0Kn/png-transparent-bargain-product-promotion-action-up-to-date-offer-announcement-sticker-banner-busine.png"
+            alt="offer"
+          />
+          <h1 className="text-white md:text-4xl font-bold">
+            Limited Time Offer – Get 50% Off All Services!
+          </h1>
         </div>
-      </section>
+      </motion.section>
 
       {/* Populer Service section */}
       <section className="my-32 max-w-7xl mx-auto">
         <div className="space-y-2 md:px-0 px-4">
-          <h1 className="md:text-5xl text-4xl text-center text-primary font-bold">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "twin",
+              bounce: 5,
+              stiffness: 150,
+              duration: 0.8,
+              delay: 0.5,
+              ease: "easeOut",
+            }}
+            className="md:text-5xl text-4xl text-center text-primary font-bold"
+          >
             Our Popular Services
-          </h1>
-          <p className="md:text-lg text-center text-secondary">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "twin",
+              bounce: 5,
+              stiffness: 150,
+              duration: 0.8,
+              delay: 1,
+              ease: "easeOut",
+            }}
+            className="md:text-lg text-center text-secondary"
+          >
             Our popular services offer expert solutions, reliable support, and{" "}
             <br />
             customer satisfaction across diverse needs—delivering value, trust,
             and excellence daily.
-          </p>
+          </motion.p>
         </div>
         <div className="my-16 px-4">
           {services.map((service) => (
@@ -51,13 +97,28 @@ const Home = () => {
               service={service}
             ></PopularServices>
           ))}
-          <Link
-            to="/services"
-            className="relative text-primary font-semibold group md:px-0 px-4"
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              bounce: 5,
+              stiffness: 150,
+              duration: 0.5,
+              delay: 0.5,
+              ease: "easeOut",
+            }}
+            className="overflow-hidden"
           >
-            See All
-            <span className="absolute h-1 w-0 bg-primary hover:w-full left-0 -bottom-1 group-hover:w-full  transition-all duration-400"></span>
-          </Link>
+            <Link
+              to="/services"
+              className="relative text-primary font-semibold group md:px-0 px-4"
+            >
+              See All
+              <span className="absolute h-1 w-0 bg-primary hover:w-full left-0 -bottom-1 group-hover:w-full  transition-all duration-400"></span>
+            </Link>
+          </motion.div>
         </div>
       </section>
 

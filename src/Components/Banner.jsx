@@ -47,7 +47,7 @@ const Banner = () => {
                 transition={{
                   type: "tween",
                   stiffness: 150,
-                  duration: 0.5,
+                  duration: 0.8,
                   delay: 0.5,
                 }}
                 className="md:text-xl text-base-300 font-bold text-center px-4 max-w-2xl"
@@ -91,7 +91,7 @@ const Banner = () => {
                   type: "spring",
                   stiffness: 100,
                   damping: 5,
-                  duration: 0.5,
+                  duration: 0.8,
                   delay: 0.5,
                 }}
                 viewport={{ once: true }}
@@ -127,7 +127,7 @@ const Banner = () => {
                   type: "spring",
                   stiffness: 100,
                   damping: 5,
-                  duration: 0.5,
+                  duration: 0.8,
                   delay: 0.5,
                 }}
                 viewport={{ once: true }}
