@@ -24,7 +24,7 @@ const Home = () => {
         <MarqueeComponent></MarqueeComponent>
       </section>
 
-      <section  class="bg-[url('https://img.freepik.com/premium-vector/abstract-colorful-banner-background-color-gradient-abstract-background-with-dynamic-wave-line-effect-vector-abstract-graphic-design-banner-pattern-background-web-template_181182-33656.jpg?semt=ais_items_boosted&w=740')] bg-cover bg-center max-w-7xl mx-auto px-10 rounded-xl my-10 shadow-xl hover:shadow-2xl transition duration-300">
+      <section  className="bg-[url('https://img.freepik.com/premium-vector/abstract-colorful-banner-background-color-gradient-abstract-background-with-dynamic-wave-line-effect-vector-abstract-graphic-design-banner-pattern-background-web-template_181182-33656.jpg?semt=ais_items_boosted&w=740')] bg-cover bg-center max-w-7xl mx-auto px-10 rounded-xl my-10 shadow-xl hover:shadow-2xl transition duration-300">
         <div className="flex justify-center items-center gap-10">
           <img className="md:w-36 w-20" src="https://i.ibb.co/Fk2GD0Kn/png-transparent-bargain-product-promotion-action-up-to-date-offer-announcement-sticker-banner-busine.png" alt="offer" />
           <h1 className="text-white md:text-4xl font-bold">Limited Time Offer – Get 50% Off All Services!</h1>

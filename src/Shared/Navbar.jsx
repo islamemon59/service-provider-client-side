@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link, Links, NavLink, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
