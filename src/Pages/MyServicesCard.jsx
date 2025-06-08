@@ -55,7 +55,7 @@ const MyServicesCard = ({ service, services, setServices }) => {
         <img
           src={imageUrl}
           alt="AC Service"
-          className="w-full h-full object-cover transition-transform duration-600 hover:scale-110 rounded-xl"
+          className="w-full h-[500px] object-cover transition-transform duration-600 hover:scale-110 rounded-xl"
         />
       </div>
 

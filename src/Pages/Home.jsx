@@ -2,17 +2,29 @@ import { Link, useLoaderData } from "react-router";
 import Banner from "../Components/Banner";
 import useTitle from "../Hooks/useTitle";
 import PopularServices from "../Components/PopularServices";
+import MarqueeComponent from "../Components/MarqueeComponent";
+import Navbar from "../Shared/Navbar";
 
 const Home = () => {
   const services = useLoaderData();
   useTitle("Home");
   return (
     <div>
-      <div className="-z-10">
+      {/* Banner section */}
+      <section className="relative">
+        <div className="absolute z-10 w-full  max-w-7xl mx-auto inset-0">
+          <Navbar></Navbar>
+        </div>
         <Banner></Banner>
-      </div>
-      <div className="my-16">
-        <div className="space-y-4">
+      </section>
+
+      <section>
+        <MarqueeComponent></MarqueeComponent>
+      </section>
+
+      {/* Populer Service section */}
+      <section className="my-32 max-w-7xl mx-auto">
+        <div className="space-y-2">
           <h1 className="md:text-6xl text-4xl text-center text-primary font-bold">
             Our Popular Services
           </h1>
@@ -30,9 +42,12 @@ const Home = () => {
               service={service}
             ></PopularServices>
           ))}
-          <Link to="/services" className="btn btn-primary btn-soft">See All</Link>
+          <Link to="/services" className="relative text-primary font-semibold group">
+            See All
+            <span className="absolute h-1 w-0 bg-primary hover:w-full left-0 -bottom-1 group-hover:w-full  transition-all duration-400"></span>
+          </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

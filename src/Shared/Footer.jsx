@@ -2,14 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10 mt-10">
+    <footer className="bg-primary text-base-200">
+      <section className="footer sm:footer-horizontal p-10 mt-10  max-w-7xl mx-auto">
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Add Service</a>
+          <a className="link link-hover">Manage Service</a>
+          <a className="link link-hover">Booked Services</a>
+          <a className="link link-hover">Service-To-Do</a>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
@@ -56,8 +56,8 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-      </footer>
-      <section className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+      </section>
+      <section className="footer sm:footer-horizontal footer-center p-4 bg-primary text-base-200">
         <aside>
           <p>
             Copyright © {new Date().getFullYear()} - All right reserved by ACME

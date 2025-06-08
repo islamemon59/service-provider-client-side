@@ -6,6 +6,7 @@ import useTitle from "../Hooks/useTitle";
 import axios from "axios";
 import searchData from "../assets/search.json";
 import Lottie from "lottie-react";
+import Navbar from "../Shared/Navbar";
 
 const AllServices = () => {
   useTitle("Services");
@@ -22,6 +23,7 @@ const AllServices = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className="my-20">
         <div className="flex justify-center items-center">
           <input

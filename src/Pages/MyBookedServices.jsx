@@ -4,6 +4,7 @@ import ContextHook from "../Hooks/ContextHook";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useTitle from "../Hooks/useTitle";
+import Navbar from "../Shared/Navbar";
 
 const MyBookedServices = () => {
   useTitle("Purchase Service");
@@ -36,7 +37,9 @@ const MyBookedServices = () => {
   };
 
   return (
-    <div className="w-full mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl">
+<div>
+  <Navbar></Navbar>
+      <div className="w-full mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl">
       <h2 className="text-3xl font-bold text-center mb-6">Purchase Service</h2>
       <form onSubmit={handlePurchase} className="grid md:grid-cols-2 gap-6">
         <div>
@@ -150,6 +153,7 @@ const MyBookedServices = () => {
         </button>
       </form>
     </div>
+</div>
   );
 };
 

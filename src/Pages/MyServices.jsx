@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import MyServicesCard from "./MyServicesCard";
 import Lottie from "lottie-react";
 import noData from "../assets/noData.json"
+import Navbar from "../Shared/Navbar";
 
 const MyServices = ({ myServicesPromise }) => {
   const initialServices = use(myServicesPromise);
@@ -9,6 +10,7 @@ const MyServices = ({ myServicesPromise }) => {
   console.log(services);
   return (
     <div>
+      <Navbar></Navbar>
       {services.length == 0 ? (
         <div className="mt-10 flex justify-center items-center flex-col">
             <h1 className="text-center md:text-5xl font-bold text-4xl py-6 text-error">You haven't added any data</h1>

@@ -9,7 +9,7 @@ const ManageMyServices = () => {
     useTitle("Manage Service")
     const {user} = ContextHook()
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <Suspense fallback={<Loader></Loader>}>
                 <MyServices myServicesPromise={myServicesPromise(user?.email, user?.accessToken)}></MyServices>
             </Suspense>

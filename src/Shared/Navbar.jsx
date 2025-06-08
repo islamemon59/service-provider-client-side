@@ -23,10 +23,10 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 py-4 rounded-md  max-w-7xl mx-auto shadow-xl md:px-4">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className=" lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -48,21 +48,27 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a>Parent</a>
+              <NavLink to="/services">Services</NavLink>
+            </li>
+            <li>
+              <a>Dashboard</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <NavLink to="/addServices">Add Service</NavLink>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <NavLink to="/manageService">Manage Service</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/myBooking">Booked Services</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/serviceToDo">Service To Do</NavLink>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
             </li>
           </ul>
         </div>
@@ -97,29 +103,45 @@ const Navbar = () => {
         </span>
       </div>
       <div className="navbar-center hidden lg:flex font-semibold z-10">
-        <ul className="menu menu-horizontal px-1 text-l">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/services">Services</NavLink>
-          </li>
+        <ul className="menu menu-horizontal px-1 text-l flex justify-center items-center gap-4">
+          <NavLink to="/" className="relative group">
+            Home
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+          </NavLink>
+
+          <NavLink to="/services" className="relative group">
+            Services
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+          </NavLink>
+
           {user && (
             <li>
               <details>
-                <summary>Dashboard</summary>
-                <ul className="p-2 w-36">
+                <summary className="relative group">Dashboard<span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span></summary>
+                <ul className="p-2 w-42">
                   <li>
-                    <NavLink to="/addServices">Add Service</NavLink>
+                    <NavLink to="/addServices" className="relative group">
+                      Add Service
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/manageService">Manage Service</NavLink>
+                    <NavLink to="/manageService" className="relative group">
+                      Manage Service
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/myBooking">Booked Services</NavLink>
+                    <NavLink to="/myBooking" className="relative group">
+                      Booked Services
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/serviceToDo">Service-To-Do</NavLink>
+                    <NavLink to="/serviceToDo" className="relative group">
+                      Service To Do
+                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                    </NavLink>
                   </li>
                 </ul>
               </details>
@@ -161,16 +183,24 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <button onClick={handleLogout} className="btn">
-              Logout
+            <button
+              onClick={handleLogout}
+              className="relative text-info font-semibold group btn-soft"
+            >
+              Log Out
+              <span className="absolute left-0 -bottom-1 w-0 h-1 bg-primary transition-all duration-400 group-hover:w-full"></span>
             </button>
           </div>
         ) : (
           <>
-            <Link to="/register" className="">
+            <Link
+              to="/register"
+              className="relative text-info font-semibold group"
+            >
               Register
+              <span className="absolute left-0 -bottom-1 w-0 h-1 bg-primary transition-all duration-400 group-hover:w-full"></span>
             </Link>
-            <Link to="/signin" className="btn">
+            <Link to="/signin" className="btn btn-primary btn-outline">
               Signin
             </Link>
           </>
