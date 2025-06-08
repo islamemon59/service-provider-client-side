@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 
 const ServiceCard = ({ service }) => {
@@ -12,6 +12,15 @@ const ServiceCard = ({ service }) => {
     providerImage,
     providerName,
   } = service;
+
+  const [cutDescription, setCutDescription] = useState(
+    description.slice(0, 360)
+  );
+
+  const handleSeeMore = () => {
+    setCutDescription(description);
+  };
+
   return (
     <div className="card w-full bg-base-100 shadow-xl mb-20 border-1 border-base-300 hover:border-secondary hover:scale-105 transition duration-600">
       <figure>
@@ -27,7 +36,17 @@ const ServiceCard = ({ service }) => {
           <div className="badge badge-primary text-white">৳{price}</div>
         </h2>
 
-        <p className="text-sm text-base-content">{description}</p>
+        <p className="text-sm text-base-content">
+          {cutDescription}{" "}
+          <span
+            onClick={handleSeeMore}
+            className={`text-primary hover:underline cursor-pointer ${
+              cutDescription.length > 360 ? "hidden" : "block"
+            }`}
+          >
+            See More...
+          </span>
+        </p>
 
         <div className="text-sm text-base-content">
           <span className="font-semibold">Area:</span> {area}

@@ -18,9 +18,11 @@ const ServiceDetails = () => {
     providerName,
   } = service;
   return (
-    <>
-      <Navbar></Navbar>
-      <div className="flex flex-col md:flex-row gap-6 items-start p-6 bg-base-100 rounded-xl shadow-lg my-10 max-w-7xl mx-auto">
+    <div className="relative">
+      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
+        <Navbar></Navbar>
+      </div>
+      <div className="flex flex-col md:flex-row gap-6 items-start p-6 bg-base-100 rounded-xl shadow-lg mt-40 my-10 max-w-7xl mx-auto">
         <div className="md:w-1/2 w-full overflow-hidden rounded-xl">
           <img
             src={imageUrl}
@@ -92,7 +94,7 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -10,9 +10,11 @@ const ServiceToDo = () => {
     useTitle("Service To Do")
     const {user} = ContextHook()
     return (
-        <div className='max-w-7xl mx-auto'>
-            <Navbar></Navbar>
-            <div>
+        <div className='max-w-7xl mx-auto relative'>
+                        <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
+        <Navbar></Navbar>
+      </div>
+            <div className='mt-30'>
                 <Suspense fallback={<Loader></Loader>}>
                     <ServiceToDoPromise myServiceToDoPromise={myServiceToDoPromise(user?.email, user?.accessToken)}></ServiceToDoPromise>
                 </Suspense>

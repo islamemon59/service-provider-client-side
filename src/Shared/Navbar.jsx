@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router";
+import { Link, Links, NavLink, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
@@ -72,7 +72,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to="/" className="flex justify-center items-center px-2"><img className="sm:w-[130px] w-[80px]" src="https://i.ibb.co/YFtd1DWK/edit-logo.png" alt="logo" /></Link>
         <span>
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
@@ -117,7 +117,10 @@ const Navbar = () => {
           {user && (
             <li>
               <details>
-                <summary className="relative group">Dashboard<span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span></summary>
+                <summary className="relative group">
+                  Dashboard
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                </summary>
                 <ul className="p-2 w-42">
                   <li>
                     <NavLink to="/addServices" className="relative group">
@@ -195,12 +198,12 @@ const Navbar = () => {
           <>
             <Link
               to="/register"
-              className="relative text-info font-semibold group"
+              className="relative text-info font-semibold group md:text-[16px] text-xs"
             >
               Register
               <span className="absolute left-0 -bottom-1 w-0 h-1 bg-primary transition-all duration-400 group-hover:w-full"></span>
             </Link>
-            <Link to="/signin" className="btn btn-primary btn-outline">
+            <Link to="/signin" className="btn btn-primary btn-outline md:text-[16px] text-xs">
               Signin
             </Link>
           </>

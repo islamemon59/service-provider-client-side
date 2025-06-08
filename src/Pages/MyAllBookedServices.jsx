@@ -3,7 +3,6 @@ import React, { use, useState } from "react";
 import ShowMyBookedServices from "./ShowMyBookedServices";
 import noData from "../assets/noData.json";
 import Lottie from "lottie-react";
-import Navbar from "../Shared/Navbar";
 
 const MyAllBookedServices = ({ myBookedServicesPromise }) => {
   const initialServices = use(myBookedServicesPromise);
@@ -11,7 +10,6 @@ const MyAllBookedServices = ({ myBookedServicesPromise }) => {
   console.log(services);
   return (
     <div>
-      <Navbar></Navbar>
       {services.length == 0 ? (
         <div className="mt-10 flex justify-center items-center flex-col">
           <h1 className="text-center md:text-5xl font-bold text-4xl py-6 text-error">
