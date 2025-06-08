@@ -32,7 +32,7 @@ const AddService = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="max-w-md mx-auto mt-20 p-6 bg-base-100 shadow-xl rounded-2xl">
+      <div className="max-w-md mx-auto mt-20 p-6 bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl">
         <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <label className="label text-xs">ImageURL</label>

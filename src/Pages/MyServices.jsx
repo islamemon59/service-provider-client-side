@@ -18,10 +18,11 @@ const MyServices = ({ myServicesPromise }) => {
         </div>
       ) : (
         <div>
-          <h1 className="text-center md:text-5xl font-bold text-4xl py-6 text-primary">
+          <h1 className="text-center md:text-5xl font-bold text-4xl mt-10 pt-6 text-primary">
             Manage Your Services
           </h1>
-          <div>
+            <div className="divider max-w-2xl mx-auto"></div>
+          <div className="my-20">
             {services.map((service) => (
               <MyServicesCard
                 key={service._id}
@@ -31,6 +32,7 @@ const MyServices = ({ myServicesPromise }) => {
               ></MyServicesCard>
             ))}
           </div>
+          <div className="divider"></div>
         </div>
       )}
     </div>

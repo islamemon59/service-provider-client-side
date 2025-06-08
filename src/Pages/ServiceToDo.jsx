@@ -10,7 +10,7 @@ const ServiceToDo = () => {
     useTitle("Service To Do")
     const {user} = ContextHook()
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <Navbar></Navbar>
             <div>
                 <Suspense fallback={<Loader></Loader>}>

@@ -13,7 +13,7 @@ const ServiceCard = ({ service }) => {
     providerName,
   } = service;
   return (
-    <div className="card w-full bg-base-100 shadow-xl mb-10 border-1 border-base-300 hover:border-secondary hover:scale-105 transition duration-600">
+    <div className="card w-full bg-base-100 shadow-xl mb-20 border-1 border-base-300 hover:border-secondary hover:scale-105 transition duration-600">
       <figure>
         <img
           src={imageUrl}

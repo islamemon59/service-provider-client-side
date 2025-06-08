@@ -4,6 +4,7 @@ import useTitle from "../Hooks/useTitle";
 import PopularServices from "../Components/PopularServices";
 import MarqueeComponent from "../Components/MarqueeComponent";
 import Navbar from "../Shared/Navbar";
+import ServiceCountUp from "../Components/ServiceCountUp";
 
 const Home = () => {
   const services = useLoaderData();
@@ -25,7 +26,7 @@ const Home = () => {
       {/* Populer Service section */}
       <section className="my-32 max-w-7xl mx-auto">
         <div className="space-y-2">
-          <h1 className="md:text-6xl text-4xl text-center text-primary font-bold">
+          <h1 className="md:text-5xl text-4xl text-center text-primary font-bold">
             Our Popular Services
           </h1>
           <p className="md:text-lg text-center text-secondary">
@@ -47,6 +48,10 @@ const Home = () => {
             <span className="absolute h-1 w-0 bg-primary hover:w-full left-0 -bottom-1 group-hover:w-full  transition-all duration-400"></span>
           </Link>
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto">
+        <ServiceCountUp></ServiceCountUp>
       </section>
     </div>
   );

@@ -24,8 +24,8 @@ const AllServices = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="my-20">
-        <div className="flex justify-center items-center">
+      <div className="my-20 max-w-7xl mx-auto">
+        <div className="flex justify-center items-center pb-8">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
@@ -35,6 +35,7 @@ const AllServices = () => {
           />
         </div>
         <div>
+          {/* <div className="divider"></div> */}
           {services.length === 0 ? (
             <div className="flex justify-center items-center flex-col min-h-96">
               <h1 className="sm:text-5xl text-4xl font-bold text-base-300">
@@ -47,18 +48,18 @@ const AllServices = () => {
             </div>
           ) : (
             <div>
-              <div className="my-10">
-                <h2 className=" text-3xl md:text-6xl text-primary font-bold text-center">
+              <div className="my-10 pt-6 space-y-3">
+                <h2 className=" text-3xl md:text-5xl text-primary font-bold text-center">
                   Our All Services Here
                 </h2>
-                <p className="md:text-lg text-center text-secondary">
+                <p className="md:text-lg text-center text-secondary max-w-2xl mx-auto">
                   Explore all our services in one place—tailored solutions,
                   expert support, and reliable delivery to meet every need with
                   professionalism, efficiency, and a commitment to complete
                   customer satisfaction.
                 </p>
               </div>
-              <div>
+              <div className="my-20">
                 {services.map((service) => (
                   <ServiceCard
                     key={service._id}

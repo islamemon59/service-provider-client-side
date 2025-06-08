@@ -23,7 +23,7 @@ const Banner = () => {
             <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
             <div className="absolute inset-0  bg-opacity-50 z-10 flex items-center justify-center flex-col gap-5 mt-10">
-              <h2 className="text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
+              <h2 className="text-3xl md:text-5xl text-base-100 font-bold text-center px-4">
                 Reliable Home Cleaning
               </h2>
               <p className="md:text-xl text-base-300 font-bold text-center px-4 max-w-2xl">
@@ -45,7 +45,7 @@ const Banner = () => {
             <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
             <div className="absolute inset-0  bg-opacity-50 z-10 flex items-center justify-center flex-col gap-5 mt-10">
-              <h2 className=" text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
+              <h2 className=" text-3xl md:text-5xl text-base-100 font-bold text-center px-4">
                 Expert Plumbing Services
               </h2>
               <p className="md:text-xl text-base-300 font-bold text-center px-4 max-w-2xl">
@@ -67,7 +67,7 @@ const Banner = () => {
             <div className="inset-0 absolute bg-black/50 "></div>
             {/* Overlay shade */}
             <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center flex-col gap-5 mt-10">
-              <h2 className="text-3xl md:text-6xl text-base-100 font-bold text-center px-4">
+              <h2 className="text-3xl md:text-5xl text-base-100 font-bold text-center px-4">
                 Skilled Electricians Near You
               </h2>
               <p className="md:text-xl text-base-300 font-bold text-center px-4 max-w-2xl">

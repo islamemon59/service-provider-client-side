@@ -16,10 +16,11 @@ const ServiceToDoPromise = ({ myServiceToDoPromise }) => {
         </div>
       ) : (
         <div>
-          <h1 className="text-center md:text-5xl font-bold text-4xl py-10 text-primary">
+          <h1 className="text-center md:text-5xl font-bold text-4xl mt-10 pt-6 text-primary">
             These people have booked your service
           </h1>
-          <div className="grid  lg:grid-cols-3 md:grid-cols-2 gap-8 grid-cols-1">
+          <div className="divider max-w-4xl mx-auto"></div>
+          <div className="grid  lg:grid-cols-3 md:grid-cols-2 gap-8 grid-cols-1 my-20">
             {services.map((service) => (
               <ServiceToDoCard
                 key={service._id}

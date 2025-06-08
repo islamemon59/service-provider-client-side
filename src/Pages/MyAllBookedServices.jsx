@@ -21,10 +21,11 @@ const MyAllBookedServices = ({ myBookedServicesPromise }) => {
         </div>
       ) : (
         <div>
-          <h1 className=" text-3xl md:text-5xl text-primary font-bold text-center px-4 my-10 py-6">
+          <h1 className=" text-3xl md:text-5xl text-primary font-bold text-center px-4 mt-10 pt-6">
             All booked services are here
           </h1>
-          <div>
+           <div className="divider max-w-3xl mx-auto"></div>
+          <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-8">
             {services.map((service) => (
               <ShowMyBookedServices
                 key={service._id}
@@ -32,6 +33,7 @@ const MyAllBookedServices = ({ myBookedServicesPromise }) => {
               ></ShowMyBookedServices>
             ))}
           </div>
+          <div className="divider"></div>
         </div>
       )}
     </div>

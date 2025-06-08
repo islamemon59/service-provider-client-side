@@ -9,7 +9,7 @@ const BookedServices = () => {
   useTitle("Booked Services")
   const { user } = ContextHook();
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <Suspense fallback={<Loader></Loader>}>
         <MyAllBookedServices
           myBookedServicesPromise={myBookedServicesPromise(user?.email, user?.accessToken)}
