@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const MyServicesCard = ({ service, services, setServices }) => {
-  console.log(service);
   const {
     _id,
     area,
@@ -42,7 +41,6 @@ const MyServicesCard = ({ service, services, setServices }) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              console.log(res.data);
             }
           });
       }

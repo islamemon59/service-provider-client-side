@@ -7,13 +7,12 @@ import axios from "axios";
 import searchData from "../assets/search.json";
 import Lottie from "lottie-react";
 import Navbar from "../Shared/Navbar";
+import Loader from "../Shared/Loader";
 
 const AllServices = () => {
   useTitle("Services");
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
-  console.log(search);
-  console.log(services);
 
   useEffect(() => {
     axios(`http://localhost:3000/allServices?searchParams=${search}`).then(
@@ -22,7 +21,7 @@ const AllServices = () => {
   }, [setServices, search]);
 
   return (
-    <div className="my-40 max-w-7xl mx-auto relative">
+    <div className="md:my-40 my-26 max-w-7xl mx-auto relative">
       <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
         <Navbar></Navbar>
       </div>
@@ -62,7 +61,9 @@ const AllServices = () => {
             </div>
             <div className="my-20">
               {services.map((service) => (
-                <ServiceCard key={service._id} service={service}></ServiceCard>
+                <Suspense fallback={<Loader></Loader>}>
+                  <ServiceCard key={service._id} service={service}></ServiceCard>
+                </Suspense>
               ))}
             </div>
           </div>

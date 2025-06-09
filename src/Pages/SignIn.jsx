@@ -30,7 +30,6 @@ const SignIn = () => {
         navigate(location?.state || "/");
       })
       .catch((error) => {
-        console.log(error);
         toast.error(`${error.message}`);
       });
   };

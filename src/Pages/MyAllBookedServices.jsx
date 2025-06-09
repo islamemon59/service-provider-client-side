@@ -7,7 +7,6 @@ import Lottie from "lottie-react";
 const MyAllBookedServices = ({ myBookedServicesPromise }) => {
   const initialServices = use(myBookedServicesPromise);
   const [services, setServices] = useState(initialServices);
-  console.log(services);
   return (
     <div>
       {services.length == 0 ? (

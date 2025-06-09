@@ -12,7 +12,6 @@ const MyBookedServices = () => {
   const navigate = useNavigate();
   const { user } = ContextHook();
   const { _id, imageUrl, name, price, providerEmail, providerName } = service;
-  console.log(service);
 
   const handlePurchase = (e) => {
     e.preventDefault();
@@ -20,7 +19,6 @@ const MyBookedServices = () => {
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.serviceStatus = "pending";
-    console.log(serviceData);
 
     axios.post("http://localhost:3000/booking", serviceData).then((res) => {
       if (res.data.insertedId) {

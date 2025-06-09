@@ -11,7 +11,7 @@ const Banner = () => {
     <div className="w-full h-[500px] md:h-[500px] overflow-hidden -z-20">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 30000 }}
+        autoplay={{ delay: 3000 }}
         loop={true}
         className="w-full h-full"
       >

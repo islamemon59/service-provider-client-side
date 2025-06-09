@@ -15,7 +15,7 @@ const ManageMyServices = () => {
         <Navbar></Navbar>
       </div>
       <Suspense fallback={<Loader></Loader>}>
-        <div className="mt-30">
+        <div className="md:mt-30 my-20">
           <MyServices
             myServicesPromise={myServicesPromise(
               user?.email,

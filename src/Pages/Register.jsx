@@ -47,7 +47,6 @@ const Register = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
           })
           .catch(() => {});
-        console.log(currentUser);
       })
       .catch((error) => {
         toast.error(`${error.message}`);

@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 const UpdateServices = () => {
   const service = useLoaderData();
   const { user } = ContextHook();
-  console.log(service);
   const { _id, imageUrl, name, price, area, description } = service;
 
   const handleUpdate = (e) => {
@@ -18,7 +17,6 @@ const UpdateServices = () => {
     updateService.providerName = user?.displayName;
     updateService.providerEmail = user?.email;
     updateService.providerImage = user?.photoURL;
-    console.log(updateService);
 
     axios
       .put(`http://localhost:3000/addService/${_id}`, updateService)
@@ -29,7 +27,6 @@ const UpdateServices = () => {
             icon: "success",
             draggable: true,
           });
-          console.log(res.data);
         }
       });
   };
@@ -85,7 +82,7 @@ const UpdateServices = () => {
           required
         ></textarea>
         <button type="submit" className="btn btn-primary w-full">
-          Add Service
+          Update Service
         </button>
       </form>
     </div>

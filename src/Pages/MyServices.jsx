@@ -7,7 +7,6 @@ import Navbar from "../Shared/Navbar";
 const MyServices = ({ myServicesPromise }) => {
   const initialServices = use(myServicesPromise);
   const [services, setServices] = useState(initialServices);
-  console.log(services);
   return (
     <div>
       {services.length == 0 ? (
