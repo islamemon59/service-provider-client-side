@@ -76,14 +76,13 @@ const Navbar = () => {
         <Link to="/" className="flex justify-center items-center px-2"><img className="sm:w-[130px] w-[80px]" src="https://i.ibb.co/YFtd1DWK/edit-logo.png" alt="logo" /></Link>
         <span>
           <label className="swap swap-rotate">
-            {/* this hidden checkbox controls the state */}
+
             <input
               type="checkbox"
               className="theme-controller"
               value="dracula"
             />
 
-            {/* sun icon */}
             <svg
               className="swap-off w-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
