@@ -21,7 +21,7 @@ const MyAllBookedServices = ({ myBookedServicesPromise }) => {
           <h1 className=" text-3xl md:text-5xl text-primary font-bold text-center px-4 mt-10 pt-6">
             All booked services are here
           </h1>
-           <div className="divider max-w-3xl mx-auto"></div>
+          <div className="divider max-w-3xl mx-auto"></div>
           <div className="mt-20 grid md:grid-cols-2 grid-cols-1 gap-8">
             {services.map((service) => (
               <ShowMyBookedServices

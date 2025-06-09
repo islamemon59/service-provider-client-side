@@ -59,7 +59,7 @@ const Banner = () => {
               <motion.Link
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{once: true}}
+                viewport={{ once: true }}
                 transition={{
                   type: "tween",
                   stiffness: 150,

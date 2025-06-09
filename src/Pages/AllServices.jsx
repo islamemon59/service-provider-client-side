@@ -62,7 +62,10 @@ const AllServices = () => {
             <div className="my-20">
               {services.map((service) => (
                 <Suspense fallback={<Loader></Loader>}>
-                  <ServiceCard key={service._id} service={service}></ServiceCard>
+                  <ServiceCard
+                    key={service._id}
+                    service={service}
+                  ></ServiceCard>
                 </Suspense>
               ))}
             </div>

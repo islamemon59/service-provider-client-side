@@ -33,8 +33,8 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUserProfile = (updatedProfile) => {
-    return updateProfile(auth.currentUser, updatedProfile)
-  }
+    return updateProfile(auth.currentUser, updatedProfile);
+  };
 
   const signOutUser = () => {
     return signOut(auth);
@@ -42,13 +42,13 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser)
-        setLoading(false)
-    })
+      setUser(currentUser);
+      setLoading(false);
+    });
     return () => {
-        unSubscribe
-    }
-  })
+      unSubscribe;
+    };
+  });
 
   const userInfo = {
     user,

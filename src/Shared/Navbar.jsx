@@ -73,10 +73,15 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to="/" className="flex justify-center items-center px-2"><img className="sm:w-[130px] w-[80px]" src="https://i.ibb.co/YFtd1DWK/edit-logo.png" alt="logo" /></Link>
+        <Link to="/" className="flex justify-center items-center px-2">
+          <img
+            className="sm:w-[130px] w-[80px]"
+            src="https://i.ibb.co/YFtd1DWK/edit-logo.png"
+            alt="logo"
+          />
+        </Link>
         <span>
           <label className="swap swap-rotate">
-
             <input
               type="checkbox"
               className="theme-controller"
@@ -186,7 +191,10 @@ const Navbar = () => {
               Register
               <span className="absolute left-0 -bottom-1 w-0 h-1 bg-primary transition-all duration-400 group-hover:w-full"></span>
             </Link>
-            <Link to="/signin" className="btn btn-primary btn-outline md:text-[16px] text-xs">
+            <Link
+              to="/signin"
+              className="btn btn-primary btn-outline md:text-[16px] text-xs"
+            >
               Signin
             </Link>
           </>

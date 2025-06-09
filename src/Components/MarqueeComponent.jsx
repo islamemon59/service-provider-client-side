@@ -4,7 +4,11 @@ import Marquee from "react-fast-marquee";
 const MarqueeComponent = () => {
   return (
     <div>
-      <Marquee className="bg-primary/40 md:p-3 p-1" speed={30} pauseOnHover={true}>
+      <Marquee
+        className="bg-primary/40 md:p-3 p-1"
+        speed={30}
+        pauseOnHover={true}
+      >
         <div className=" flex justify-between items-center gap-26 md:text-xl">
           <div>
             {" "}

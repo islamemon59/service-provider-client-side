@@ -15,17 +15,18 @@ const ServiceToDoCard = ({ service }) => {
     userEmail,
     userName,
   } = service;
-  
-  const [status, setStatus] = useState(serviceStatus)
+
+  const [status, setStatus] = useState(serviceStatus);
 
   const handleStatus = (Working) => {
-    axios.patch(`http://localhost:3000/status/${_id}`, {serviceStatus: Working})
-    .then(res => {
-        if(res.data.modifiedCount){
-            setStatus(Working)
+    axios
+      .patch(`http://localhost:3000/status/${_id}`, { serviceStatus: Working })
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          setStatus(Working);
         }
-    })
-  }
+      });
+  };
 
   return (
     <div className="w-full mx-auto my-6">
@@ -47,30 +48,32 @@ const ServiceToDoCard = ({ service }) => {
             <p>
               <span className="font-semibold">Price:</span> ৳{price}
             </p>
-              <span className="font-semibold">
-                <div className="dropdown">
-                  <div tabIndex={0} role="button" className="m-1 btn rounded-full">
-                    Status
-                  </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu text-base-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm"
-                  >
-                    <li onClick={() => handleStatus("Pending")}>
-                      <a>Pending</a>
-                    </li>
-                    <li onClick={() => handleStatus("Working")}>
-                      <a>Working</a>
-                    </li>
-                    <li onClick={() => handleStatus("Completed")}>
-                      <a>Completed</a>
-                    </li>
-                  </ul>
+            <span className="font-semibold">
+              <div className="dropdown">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="m-1 btn rounded-full"
+                >
+                  Status
                 </div>
-              </span>
-              <span className="badge badge-warning text-xs">
-                {status}
-              </span>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu text-base-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm"
+                >
+                  <li onClick={() => handleStatus("Pending")}>
+                    <a>Pending</a>
+                  </li>
+                  <li onClick={() => handleStatus("Working")}>
+                    <a>Working</a>
+                  </li>
+                  <li onClick={() => handleStatus("Completed")}>
+                    <a>Completed</a>
+                  </li>
+                </ul>
+              </div>
+            </span>
+            <span className="badge badge-warning text-xs">{status}</span>
           </div>
 
           <div className="divider my-2"></div>

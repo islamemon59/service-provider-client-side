@@ -73,15 +73,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myBooking",
-        element: <PrivetRoute>
+        element: (
+          <PrivetRoute>
             <BookedServices></BookedServices>
-        </PrivetRoute>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/serviceToDo",
-        element: <PrivetRoute>
+        element: (
+          <PrivetRoute>
             <ServiceToDo></ServiceToDo>
-        </PrivetRoute>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/addServices",

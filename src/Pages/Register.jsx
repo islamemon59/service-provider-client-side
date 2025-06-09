@@ -72,7 +72,7 @@ const Register = () => {
 
   return (
     <div className="relative">
-            <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
+      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
         <Navbar></Navbar>
       </div>
       <div className="min-h-screen flex justify-center items-center">
