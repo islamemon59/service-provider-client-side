@@ -151,6 +151,9 @@ const MyBookedServices = () => {
             />
           </div>
           <button
+            onClick={() => {
+              scrollTo(0, 0);
+            }}
             type="submit"
             className="btn btn-primary w-full md:col-span-2"
           >

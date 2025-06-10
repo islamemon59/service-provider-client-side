@@ -85,6 +85,9 @@ const ServiceDetails = () => {
 
             <div className="pt-2">
               <Link
+                onClick={() => {
+                  scrollTo(0, 0);
+                }}
                 to={`/bookedServices/${_id}`}
                 className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600"
               >
