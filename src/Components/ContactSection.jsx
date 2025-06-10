@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 const ContactSection = () => {
   return (
     <div className=" flex justify-between md:flex-row flex-col gap-10 px-4">
-      <div className="flex flex-col justify-center gap-3">
+      <div className="flex flex-col justify-center gap-3 overflow-hidden">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const ContactSection = () => {
               delay: 0.5,
               ease: "easeOut",
             }}
-            className="btn btn-primary md:text-xl text-lg py-6"
+            className="btn btn-primary md:text-xl text-lg py-6 overflow-hidden"
           >
             Contact with us
           </motion.button>
@@ -52,14 +52,14 @@ const ContactSection = () => {
               delay: 0.5,
               ease: "easeOut",
             }}
-            className="btn btn-primary md:text-xl text-lg py-6 md:px-14 px-11 btn-outline"
+            className="btn btn-primary md:text-xl text-lg py-6 md:px-14 px-11 btn-outline overflow-hidden"
           >
             <IoMdCall />
             16555
           </motion.button>
         </div>
       </div>
-      <div>
+      <div className="overflow-hidden">
         <motion.img
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}

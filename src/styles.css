@@ -1,32 +1,90 @@
 #app {
-  height: 100%;
-}
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #000;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #fff;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper {
-  width: 100%;
-  height: 100%;
+  width: 280px;
+  height: 360px;
 }
 
 .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide:nth-child(1n) {
+  background-image: url("https://images.unsplash.com/photo-1649073000644-d839009ff2dd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
+.swiper-slide:nth-child(2n) {
+  background-image: url("https://plus.unsplash.com/premium_photo-1726812075913-af89b672932b?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(3n) {
+  background-image: url("https://images.unsplash.com/photo-1666009419611-e550e8c378d5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(4n) {
+  background-image: url("https://images.unsplash.com/photo-1731514940218-01cba3289cd1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(5n) {
+  background-image: url("https://www.skservicesvadodara.in/wp-content/uploads/2022/03/ac-repair-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(6n) {
+  background-image: url("https://plus.unsplash.com/premium_photo-1664298059861-1560b39fb890?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(7n) {
+  background-image: url("https://plus.unsplash.com/premium_photo-1679500354595-0feead204a28?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(8n) {
+  background-image: url("https://dialndial.com/documents/entity/image/ADORN_INTERIOR_KONDOTTY_image_61965d56dd659.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-slide:nth-child(9n) {
+  background-image: url("https://plus.unsplash.com/premium_photo-1682086494787-b295678202fd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .swiper {
+    width: 200px;
+    height: 280px;
+  }
 }

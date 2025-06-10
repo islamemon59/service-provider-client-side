@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 const Banner = () => {
   return (
     <div className="w-full h-[500px] md:h-[500px] overflow-hidden -z-20">
-      <Swiper
+      <Swiper style={{width: "100%", height: "100%"}}
         modules={[Autoplay]}
         autoplay={{ delay: 3000 }}
         loop={true}
