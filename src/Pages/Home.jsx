@@ -176,6 +176,9 @@ const Home = () => {
             className="overflow-hidden"
           >
             <Link
+            onClick={() => {
+              scrollTo(0, 0)
+            }}
               to="/services"
               className="relative text-primary font-semibold group md:px-0 px-4 overflow-hidden"
             >

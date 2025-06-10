@@ -91,6 +91,9 @@ const MyServicesCard = ({ service, services, setServices }) => {
 
             <div className="pt-2 flex justify-start items-center gap-4">
               <Link
+                onClick={() => {
+                  scrollTo(0, 0);
+                }}
                 to={`/updateServices/${_id}`}
                 className="btn btn-primary px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-600"
               >

@@ -64,6 +64,9 @@ const PopularServices = ({ service }) => {
 
         <div className="card-actions mt-4">
           <Link
+            onClick={() => {
+              scrollTo(0, 0);
+            }}
             to={`/serviceDetails/${_id}`}
             className="btn btn-primary btn-soft btn-sm w-full"
           >
