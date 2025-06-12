@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const ServiceToDoCard = ({ service }) => {
   const {
@@ -17,15 +18,22 @@ const ServiceToDoCard = ({ service }) => {
   } = service;
 
   const [status, setStatus] = useState(serviceStatus);
+  const [dropdown, setDropdown] = useState(false);
 
   const handleStatus = (Working) => {
     axios
-      .patch(`https://service-provider-server-iota.vercel.app/status/${_id}`, { serviceStatus: Working })
+      .patch(`https://service-provider-server-iota.vercel.app/status/${_id}`, {
+        serviceStatus: Working,
+      })
       .then((res) => {
         if (res.data.modifiedCount) {
           setStatus(Working);
         }
       });
+  };
+
+  const handleDropdown = () => {
+    setDropdown(!dropdown);
   };
 
   return (
@@ -49,13 +57,17 @@ const ServiceToDoCard = ({ service }) => {
               <span className="font-semibold">Price:</span> ৳{price}
             </p>
             <span className="font-semibold">
-              <div className="dropdown">
+              <div onClick={handleDropdown} className="dropdown">
                 <div
+        
                   tabIndex={0}
                   role="button"
                   className="m-1 btn rounded-full"
                 >
-                  Status
+                  Status{" "}
+                  <span className={`${dropdown ? "rotate-180" : "rotate-0"} transition duration-300`}>
+                    <RiArrowDropDownLine size={20} />
+                  </span>
                 </div>
                 <ul
                   tabIndex={0}
