@@ -18,7 +18,7 @@ const AddService = () => {
     newService.providerEmail = user?.email;
     newService.providerImage = user?.photoURL;
 
-    axios.post("http://localhost:3000/addService", newService).then((res) => {
+    axios.post("https://service-provider-server-iota.vercel.app/addService", newService).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           title: "Service Added Successfully",

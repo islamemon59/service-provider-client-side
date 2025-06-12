@@ -21,7 +21,7 @@ const UpdateServices = () => {
     updateService.providerImage = user?.photoURL;
 
     axios
-      .put(`http://localhost:3000/addService/${_id}`, updateService)
+      .put(`https://service-provider-server-iota.vercel.app/addService/${_id}`, updateService)
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({

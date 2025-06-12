@@ -20,7 +20,7 @@ const ServiceToDoCard = ({ service }) => {
 
   const handleStatus = (Working) => {
     axios
-      .patch(`http://localhost:3000/status/${_id}`, { serviceStatus: Working })
+      .patch(`https://service-provider-server-iota.vercel.app/status/${_id}`, { serviceStatus: Working })
       .then((res) => {
         if (res.data.modifiedCount) {
           setStatus(Working);

@@ -29,7 +29,7 @@ const MyServicesCard = ({ service, services, setServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/manageServices/${_id}`)
+          .delete(`https://service-provider-server-iota.vercel.app/manageServices/${_id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               const remainingServices = services.filter(

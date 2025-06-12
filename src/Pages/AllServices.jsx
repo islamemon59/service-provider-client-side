@@ -15,7 +15,7 @@ const AllServices = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    axios(`http://localhost:3000/allServices?searchParams=${search}`).then(
+    axios(`https://service-provider-server-iota.vercel.app/allServices?searchParams=${search}`).then(
       (res) => setServices(res.data)
     );
   }, [setServices, search]);

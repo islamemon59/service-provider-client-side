@@ -20,7 +20,7 @@ const MyBookedServices = () => {
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.serviceStatus = "pending";
 
-    axios.post("http://localhost:3000/booking", serviceData).then((res) => {
+    axios.post("https://service-provider-server-iota.vercel.app/booking", serviceData).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-center",

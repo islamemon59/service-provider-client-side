@@ -3,7 +3,7 @@ import ContextHook from "./ContextHook";
 import toast from "react-hot-toast";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://service-provider-server-iota.vercel.app/",
 });
 
 const UseAxiosSecure = () => {
