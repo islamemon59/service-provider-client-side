@@ -1,12 +1,9 @@
-import React, { use, useState } from "react";
 import MyServicesCard from "./MyServicesCard";
 import Lottie from "lottie-react";
 import noData from "../assets/noData.json";
 import Navbar from "../Shared/Navbar";
 
-const MyServices = ({ myServicesPromise }) => {
-  const initialServices = use(myServicesPromise);
-  const [services, setServices] = useState(initialServices);
+const MyServices = ({ services, setServices }) => {
   return (
     <div>
       {services.length == 0 ? (

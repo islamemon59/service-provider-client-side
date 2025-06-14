@@ -1,13 +1,14 @@
 import React from "react";
 import ContextHook from "../Hooks/ContextHook";
-import axios from "axios";
 import Swal from "sweetalert2";
 import useTitle from "../Hooks/useTitle";
 import Navbar from "../Shared/Navbar";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const AddService = () => {
   useTitle("Add Service");
   const { user } = ContextHook();
+  const axiosSecure = UseAxiosSecure();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,15 +19,20 @@ const AddService = () => {
     newService.providerEmail = user?.email;
     newService.providerImage = user?.photoURL;
 
-    axios.post("https://service-provider-server-iota.vercel.app/addService", newService).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          title: "Service Added Successfully",
-          icon: "success",
-          draggable: true,
-        });
-      }
-    });
+    axiosSecure
+      .post(
+        "https://service-provider-server-iota.vercel.app/addService",
+        newService
+      )
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Service Added Successfully",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      });
   };
 
   return (

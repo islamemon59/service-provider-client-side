@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser);
       setLoading(false);
     });
     return () => {
@@ -61,7 +62,9 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     signOutUser,
   };
-  return <AuthContext value={userInfo}>{children}</AuthContext>;
+  return (
+    <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

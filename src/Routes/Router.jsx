@@ -23,7 +23,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loader></Loader>,
-        loader: () => fetch("https://service-provider-server-iota.vercel.app/popularServices"),
+        loader: () =>
+          fetch(
+            "https://service-provider-server-iota.vercel.app/popularServices"
+          ),
         Component: Home,
       },
       {
@@ -32,9 +35,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        hydrateFallbackElement: <Loader></Loader>,
-        loader: ({ params }) =>
-          fetch(`https://service-provider-server-iota.vercel.app/services/${params.id}`),
         element: (
           <PrivetRoute>
             <ServiceDetails></ServiceDetails>
@@ -43,9 +43,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/bookedServices/:id",
-        hydrateFallbackElement: <Loader></Loader>,
-        loader: ({ params }) =>
-          fetch(`https://service-provider-server-iota.vercel.app/services/${params.id}`),
         element: (
           <PrivetRoute>
             <MyBookedServices></MyBookedServices>
@@ -62,9 +59,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/updateServices/:id",
-        hydrateFallbackElement: <Loader></Loader>,
-        loader: ({ params }) =>
-          fetch(`https://service-provider-server-iota.vercel.app/services/${params.id}`),
         element: (
           <PrivetRoute>
             <UpdateServices></UpdateServices>
@@ -89,7 +83,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addServices",
-        Component: AddService,
+        element: (
+          <PrivetRoute>
+            <AddService></AddService>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/signIn",

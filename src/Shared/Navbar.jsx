@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
@@ -13,6 +11,7 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         navigate("/");
+        localStorage.removeItem("token");
         Swal.fire({
           title: "Logout Successful",
           icon: "success",

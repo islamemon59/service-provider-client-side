@@ -1,16 +1,29 @@
-import React from "react";
-import { Navigate, useLoaderData, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useTitle from "../Hooks/useTitle";
 import Navbar from "../Shared/Navbar";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const MyBookedServices = () => {
   useTitle("Purchase Service");
-  const service = useLoaderData();
   const navigate = useNavigate();
   const { user } = ContextHook();
+  const axiosSecure = UseAxiosSecure()
+  const {id} = useParams()
+  const [service, setService] = useState({})
+
+
+  useEffect(() => {
+    axiosSecure.get(`services/${id}`)
+    .then(res => {
+      setService(res.data)
+    })
+  }, [axiosSecure, id])
+
+
   const { _id, imageUrl, name, price, providerEmail, providerName } = service;
 
   const handlePurchase = (e) => {

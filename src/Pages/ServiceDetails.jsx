@@ -1,11 +1,23 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router";
 import useTitle from "../Hooks/useTitle";
 import Navbar from "../Shared/Navbar";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const ServiceDetails = () => {
   useTitle("Service Details");
-  const service = useLoaderData();
+  // const service = useLoaderData();
+  const axiosSecure = UseAxiosSecure()
+  const [service, setService] = useState({}) 
+  const {id} = useParams()
+
+  useEffect(() => {
+    axiosSecure.get(`services/${id}`)
+    .then(res => {
+      setService(res.data)
+    })
+  }, [axiosSecure, id])
+
   const {
     _id,
     area,

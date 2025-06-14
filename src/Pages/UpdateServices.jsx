@@ -1,14 +1,25 @@
-import React from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
-import axios from "axios";
 import Swal from "sweetalert2";
 import Navbar from "../Shared/Navbar";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const UpdateServices = () => {
-  const service = useLoaderData();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user } = ContextHook();
+  const axiosSecure = UseAxiosSecure();
+  const {id} = useParams()
+  const [service, setService] = useState({})
+
+  useEffect(() => {
+    axiosSecure.get(`services/${id}`)
+    .then(res => {
+      setService(res.data)
+    })
+
+  }, [axiosSecure, id])
+
   const { _id, imageUrl, name, price, area, description } = service;
 
   const handleUpdate = (e) => {
@@ -20,8 +31,11 @@ const UpdateServices = () => {
     updateService.providerEmail = user?.email;
     updateService.providerImage = user?.photoURL;
 
-    axios
-      .put(`https://service-provider-server-iota.vercel.app/addService/${_id}`, updateService)
+    axiosSecure
+      .put(
+        `https://service-provider-server-iota.vercel.app/addService/${_id}`,
+        updateService
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({
@@ -29,7 +43,7 @@ const UpdateServices = () => {
             icon: "success",
             draggable: true,
           });
-          navigate("/manageService")
+          navigate("/manageService");
         }
       });
   };

@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const ServiceToDoCard = ({ service }) => {
   const {
@@ -16,12 +16,13 @@ const ServiceToDoCard = ({ service }) => {
     userEmail,
     userName,
   } = service;
+  const axiosSecure = UseAxiosSecure()
 
   const [status, setStatus] = useState(serviceStatus);
   const [dropdown, setDropdown] = useState(false);
 
   const handleStatus = (Working) => {
-    axios
+    axiosSecure
       .patch(`https://service-provider-server-iota.vercel.app/status/${_id}`, {
         serviceStatus: Working,
       })

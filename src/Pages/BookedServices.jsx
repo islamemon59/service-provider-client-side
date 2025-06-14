@@ -1,15 +1,34 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ContextHook from "../Hooks/ContextHook";
 import MyAllBookedServices from "./MyAllBookedServices";
 import Loader from "../Shared/Loader";
 import useTitle from "../Hooks/useTitle";
 import Navbar from "../Shared/Navbar";
 import UseMyBookedApi from "../Api/UseMyBookedApi";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const BookedServices = () => {
   useTitle("Booked Services");
   const { user } = ContextHook();
+  const axiosSecure = UseAxiosSecure()
+  const  [services, setServices] = useState([])
+  const [loading, setLoading] = useState(true)
   const {myBookedServicesPromise} = UseMyBookedApi()
+
+useEffect(()=> {
+axiosSecure.get(`bookingServices?email=${user?.email}`)
+.then(res => {
+  setLoading(false)
+  setServices(res?.data)
+})
+
+}, [axiosSecure, user])
+
+
+if(loading){
+  return <Loader></Loader>
+}
+
   return (
     <div className="max-w-7xl mx-auto relative">
       <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
@@ -19,6 +38,9 @@ const BookedServices = () => {
         <Suspense fallback={<Loader></Loader>}>
           <MyAllBookedServices
             myBookedServicesPromise={myBookedServicesPromise(user?.email)}
+            services={services}
+            setLoading={setLoading}
+            loading={loading}
           ></MyAllBookedServices>
         </Suspense>
       </div>

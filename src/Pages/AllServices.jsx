@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Suspense, useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
-import { useLoaderData } from "react-router";
 import useTitle from "../Hooks/useTitle";
 import axios from "axios";
 import searchData from "../assets/search.json";
@@ -13,12 +12,20 @@ const AllServices = () => {
   useTitle("Services");
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios(`https://service-provider-server-iota.vercel.app/allServices?searchParams=${search}`).then(
-      (res) => setServices(res.data)
+      (res) => {
+        setLoading(false);
+        setServices(res.data);
+      }
     );
   }, [setServices, search]);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="md:my-40 my-26 max-w-7xl mx-auto relative">
@@ -62,9 +69,7 @@ const AllServices = () => {
             <div className="my-20">
               {services.map((service) => (
                 <Suspense key={service._id} fallback={<Loader></Loader>}>
-                  <ServiceCard
-                    service={service}
-                  ></ServiceCard>
+                  <ServiceCard service={service}></ServiceCard>
                 </Suspense>
               ))}
             </div>

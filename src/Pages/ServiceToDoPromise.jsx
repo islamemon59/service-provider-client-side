@@ -1,10 +1,8 @@
-import React, { use } from "react";
 import noData from "../assets/noData.json";
 import Lottie from "lottie-react";
 import ServiceToDoCard from "./ServiceToDoCard";
 
-const ServiceToDoPromise = ({ myServiceToDoPromise }) => {
-  const services = use(myServiceToDoPromise);
+const ServiceToDoPromise = ({ services }) => {
   return (
     <div>
       {services.length == 0 ? (
