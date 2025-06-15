@@ -4,7 +4,7 @@ HelpNest is a service provider web application where users can explore, book, an
 
 ## 🔗 Live Site
 
-[Visit HelpNest Live](https://help-nest-service-provider.netlify.app/) <!-- Replace this with your actual live link -->
+[Visit HelpNest Live](https://help-nest-service-provider.netlify.app/)
 
 ## 🚀 Features
 
