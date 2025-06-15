@@ -11,17 +11,17 @@ const ManageMyServices = () => {
   const { user } = ContextHook();
   const axiosSecure = UseAxiosSecure();
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axiosSecure.get(`myServices?email=${user?.email}`).then((res) => {
-      setLoading(false)
+      setLoading(false);
       setServices(res.data);
     });
   }, [axiosSecure, user?.email]);
 
-  if(loading){
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
 
   return (

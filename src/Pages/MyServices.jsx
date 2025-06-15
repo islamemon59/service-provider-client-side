@@ -1,7 +1,6 @@
 import MyServicesCard from "./MyServicesCard";
 import Lottie from "lottie-react";
 import noData from "../assets/noData.json";
-import Navbar from "../Shared/Navbar";
 
 const MyServices = ({ services, setServices }) => {
   return (

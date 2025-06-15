@@ -11,18 +11,15 @@ const MyBookedServices = () => {
   useTitle("Purchase Service");
   const navigate = useNavigate();
   const { user } = ContextHook();
-  const axiosSecure = UseAxiosSecure()
-  const {id} = useParams()
-  const [service, setService] = useState({})
-
+  const axiosSecure = UseAxiosSecure();
+  const { id } = useParams();
+  const [service, setService] = useState({});
 
   useEffect(() => {
-    axiosSecure.get(`services/${id}`)
-    .then(res => {
-      setService(res.data)
-    })
-  }, [axiosSecure, id])
-
+    axiosSecure.get(`services/${id}`).then((res) => {
+      setService(res.data);
+    });
+  }, [axiosSecure, id]);
 
   const { _id, imageUrl, name, price, providerEmail, providerName } = service;
 
@@ -33,18 +30,23 @@ const MyBookedServices = () => {
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.serviceStatus = "pending";
 
-    axios.post("https://service-provider-server-iota.vercel.app/booking", serviceData).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Service Purchase Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/myBooking");
-      }
-    });
+    axios
+      .post(
+        "https://service-provider-server-iota.vercel.app/booking",
+        serviceData
+      )
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Service Purchase Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/myBooking");
+        }
+      });
   };
 
   return (

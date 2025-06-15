@@ -31,6 +31,7 @@ const AddService = () => {
             icon: "success",
             draggable: true,
           });
+          form.reset();
         }
       });
   };

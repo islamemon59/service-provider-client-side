@@ -9,16 +9,14 @@ const UpdateServices = () => {
   const navigate = useNavigate();
   const { user } = ContextHook();
   const axiosSecure = UseAxiosSecure();
-  const {id} = useParams()
-  const [service, setService] = useState({})
+  const { id } = useParams();
+  const [service, setService] = useState({});
 
   useEffect(() => {
-    axiosSecure.get(`services/${id}`)
-    .then(res => {
-      setService(res.data)
-    })
-
-  }, [axiosSecure, id])
+    axiosSecure.get(`services/${id}`).then((res) => {
+      setService(res.data);
+    });
+  }, [axiosSecure, id]);
 
   const { _id, imageUrl, name, price, area, description } = service;
 

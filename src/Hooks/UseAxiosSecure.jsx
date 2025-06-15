@@ -11,7 +11,6 @@ const UseAxiosSecure = () => {
   const { loading, user, signOutUser } = ContextHook();
 
   useEffect(() => {
-    console.log(user?.accessToken);
     // Add request interceptors
     const requestInterceptor = axiosInstance.interceptors.request.use(
       (config) => {

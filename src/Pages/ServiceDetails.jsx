@@ -7,16 +7,15 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 const ServiceDetails = () => {
   useTitle("Service Details");
   // const service = useLoaderData();
-  const axiosSecure = UseAxiosSecure()
-  const [service, setService] = useState({}) 
-  const {id} = useParams()
+  const axiosSecure = UseAxiosSecure();
+  const [service, setService] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
-    axiosSecure.get(`services/${id}`)
-    .then(res => {
-      setService(res.data)
-    })
-  }, [axiosSecure, id])
+    axiosSecure.get(`services/${id}`).then((res) => {
+      setService(res.data);
+    });
+  }, [axiosSecure, id]);
 
   const {
     _id,

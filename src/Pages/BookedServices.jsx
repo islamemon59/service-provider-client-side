@@ -9,23 +9,20 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 const BookedServices = () => {
   useTitle("Booked Services");
   const { user } = ContextHook();
-  const axiosSecure = UseAxiosSecure()
-  const  [services, setServices] = useState([])
-  const [loading, setLoading] = useState(true)
+  const axiosSecure = UseAxiosSecure();
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-useEffect(()=> {
-axiosSecure.get(`bookingServices?email=${user?.email}`)
-.then(res => {
-  setLoading(false)
-  setServices(res?.data)
-})
+  useEffect(() => {
+    axiosSecure.get(`bookingServices?email=${user?.email}`).then((res) => {
+      setLoading(false);
+      setServices(res?.data);
+    });
+  }, [axiosSecure, user]);
 
-}, [axiosSecure, user])
-
-
-if(loading){
-  return <Loader></Loader>
-}
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="max-w-7xl mx-auto relative">
@@ -34,9 +31,7 @@ if(loading){
       </div>
       <div className="md:mt-30 my-20">
         <Suspense fallback={<Loader></Loader>}>
-          <MyAllBookedServices
-            services={services}
-          ></MyAllBookedServices>
+          <MyAllBookedServices services={services}></MyAllBookedServices>
         </Suspense>
       </div>
     </div>

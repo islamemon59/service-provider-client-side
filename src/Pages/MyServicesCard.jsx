@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -29,7 +28,9 @@ const MyServicesCard = ({ service, services, setServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://service-provider-server-iota.vercel.app/manageServices/${_id}`)
+          .delete(
+            `https://service-provider-server-iota.vercel.app/manageServices/${_id}`
+          )
           .then((res) => {
             if (res.data.deletedCount) {
               const remainingServices = services.filter(

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { Suspense, useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import useTitle from "../Hooks/useTitle";
@@ -15,12 +14,12 @@ const AllServices = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios(`https://service-provider-server-iota.vercel.app/allServices?searchParams=${search}`).then(
-      (res) => {
-        setLoading(false);
-        setServices(res.data);
-      }
-    );
+    axios(
+      `https://service-provider-server-iota.vercel.app/allServices?searchParams=${search}`
+    ).then((res) => {
+      setLoading(false);
+      setServices(res.data);
+    });
   }, [setServices, search]);
 
   if (loading) {

@@ -16,7 +16,7 @@ const ServiceToDoCard = ({ service }) => {
     userEmail,
     userName,
   } = service;
-  const axiosSecure = UseAxiosSecure()
+  const axiosSecure = UseAxiosSecure();
 
   const [status, setStatus] = useState(serviceStatus);
   const [dropdown, setDropdown] = useState(false);
@@ -60,13 +60,16 @@ const ServiceToDoCard = ({ service }) => {
             <span className="font-semibold">
               <div onClick={handleDropdown} className="dropdown">
                 <div
-        
                   tabIndex={0}
                   role="button"
                   className="m-1 btn rounded-full"
                 >
                   Status{" "}
-                  <span className={`${dropdown ? "rotate-180" : "rotate-0"} transition duration-300`}>
+                  <span
+                    className={`${
+                      dropdown ? "rotate-180" : "rotate-0"
+                    } transition duration-300`}
+                  >
                     <RiArrowDropDownLine size={20} />
                   </span>
                 </div>
