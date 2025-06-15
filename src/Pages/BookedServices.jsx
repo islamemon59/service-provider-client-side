@@ -4,7 +4,6 @@ import MyAllBookedServices from "./MyAllBookedServices";
 import Loader from "../Shared/Loader";
 import useTitle from "../Hooks/useTitle";
 import Navbar from "../Shared/Navbar";
-import UseMyBookedApi from "../Api/UseMyBookedApi";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const BookedServices = () => {
@@ -13,7 +12,6 @@ const BookedServices = () => {
   const axiosSecure = UseAxiosSecure()
   const  [services, setServices] = useState([])
   const [loading, setLoading] = useState(true)
-  const {myBookedServicesPromise} = UseMyBookedApi()
 
 useEffect(()=> {
 axiosSecure.get(`bookingServices?email=${user?.email}`)
@@ -37,10 +35,7 @@ if(loading){
       <div className="md:mt-30 my-20">
         <Suspense fallback={<Loader></Loader>}>
           <MyAllBookedServices
-            myBookedServicesPromise={myBookedServicesPromise(user?.email)}
             services={services}
-            setLoading={setLoading}
-            loading={loading}
           ></MyAllBookedServices>
         </Suspense>
       </div>
