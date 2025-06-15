@@ -7,7 +7,7 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import useTitle from "../Hooks/useTitle";
 
 const UpdateServices = () => {
-  useTitle("Add Service");
+  useTitle("Update Service");
   const navigate = useNavigate();
   const { user } = ContextHook();
   const axiosSecure = UseAxiosSecure();
