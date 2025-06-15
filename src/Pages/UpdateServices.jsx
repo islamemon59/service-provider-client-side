@@ -4,8 +4,10 @@ import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
 import Navbar from "../Shared/Navbar";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import useTitle from "../Hooks/useTitle";
 
 const UpdateServices = () => {
+  useTitle("Add Service");
   const navigate = useNavigate();
   const { user } = ContextHook();
   const axiosSecure = UseAxiosSecure();
