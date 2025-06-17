@@ -47,29 +47,52 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/services">Services</NavLink>
-            </li>
-            <li>
-              <a>Dashboard</a>
-              <ul className="p-2">
-                <li>
-                  <NavLink to="/addServices">Add Service</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/manageService">Manage Service</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/myBooking">Booked Services</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/serviceToDo">Service To Do</NavLink>
-                </li>
-              </ul>
-            </li>
+            <NavLink to="/" className="relative group">
+              Home
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+            </NavLink>
+
+            <NavLink to="/services" className="relative group">
+              Services
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+            </NavLink>
+
+            {user && (
+              <li>
+                <details>
+                  <summary className="relative group">
+                    Dashboard
+                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                  </summary>
+                  <ul className="p-2 w-42">
+                    <li>
+                      <NavLink to="/addServices" className="relative group">
+                        Add Service
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/manageService" className="relative group">
+                        Manage Service
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/myBooking" className="relative group">
+                        Booked Services
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/serviceToDo" className="relative group">
+                        Service To Do
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-400 group-hover:w-full"></span>
+                      </NavLink>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            )}
           </ul>
         </div>
         <Link to="/" className="flex justify-center items-center px-2">
