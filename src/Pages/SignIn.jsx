@@ -35,7 +35,8 @@ const SignIn = () => {
   };
 
   const handleGoogleLogin = () => {
-    signInWithGoogle()
+    signInWithGoogle() 
+    // asdf
       .then((result) => {
         const currentUser = result.user;
         Swal.fire({
