@@ -1,6 +1,6 @@
 # HelpNest 🏠 – Service Provider Platform
 
-HelpNest is a service provider web application where users can explore, book, and manage various services. It offers a role-based experience for **customers** and **service providers**, enabling smooth interaction, booking, and service management.
+HelpNest is a comprehensive service provider web application that enables users to explore, book, and manage a variety of services. It offers a seamless, role-based experience tailored for **customers** and **service providers**, facilitating smooth interactions, bookings, and service management.
 
 ## 🔗 Live Site
 
@@ -8,15 +8,15 @@ HelpNest is a service provider web application where users can explore, book, an
 
 ## 🚀 Features
 
-- 🔐 **Authentication & Authorization**: User login and signup handled with Firebase; protected routes ensure only authorized users can access specific features.
-- 🛠️ **Service Management**: Service providers can add, edit, and delete their own services; each service is tied to the authenticated provider.
-- 📦 **Customer Booking**: Customers can browse all services and book them; they can view their own booked services securely—other users can’t access them.
-- 📋 **Status Updates**: Providers can track bookings for their services and update the status to "Pending", "Working", or "Complete".
-- 🌐 **Modern Tech Stack**: Built with React, React Router, Tailwind CSS, DaisyUI, Firebase Auth, MongoDB, Express, Axios, and JWT for secure API communication.
+* 🔐 **Authentication & Authorization:** Secure login and signup using Firebase Authentication; protected routes ensure access control based on user roles.
+* 🛠️ **Service Management:** Service providers can add, edit, and delete their services; each service is linked to its authenticated provider.
+* 📦 **Customer Booking:** Customers can browse all available services and make bookings; users can securely view their own bookings, with data privacy ensured.
+* 📋 **Booking Status Updates:** Providers can track and update the status of bookings with clear stages such as "Pending," "Working," and "Complete."
 
-## 📁 Assignment Details
+## 🛠️ Tech Stack
 
-- **Project Name:** HelpNest  
-- **Assignment Category:** 02  
-- **Tech Stack:** HTML, CSS, React.js, TailwindCSS, DaisyUI, Firebase, MongoDB, Express.js, Axios, JWT  
-- **Functionality:** Role-based access, secure service management, real-time booking and status updates.
+* **Frontend:** React, React Router, Tailwind CSS, DaisyUI
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **Authentication:** Firebase Authentication
+* **API Communication:** Axios, JWT
