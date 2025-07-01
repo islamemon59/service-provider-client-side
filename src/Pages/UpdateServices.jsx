@@ -50,11 +50,8 @@ const UpdateServices = () => {
 
   return (
     <div>
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
-      <div className="max-w-md mx-auto mt-36 p-6 bg-base-100 shadow-xl rounded-2xl">
-        <h2 className="text-3xl font-bold text-center mb-6">
+      <div className="max-w-md mx-auto mt-24 p-6 bg-base-100 shadow-xl rounded-2xl">
+        <h2 className="text-4xl font-bold text-center text-primary mb-6">
           Update Your Service
         </h2>
         <form onSubmit={handleUpdate} className="flex flex-col gap-4">

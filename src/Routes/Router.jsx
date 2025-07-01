@@ -14,6 +14,8 @@ import ManageMyServices from "../Pages/ManageMyServices";
 import UpdateServices from "../Pages/UpdateServices";
 import BookedServices from "../Pages/BookedServices";
 import ServiceToDo from "../Pages/ServiceToDo";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         Component: AllServices,
+      },
+      {
+        path: "/aboutUs",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "/serviceDetails/:id",

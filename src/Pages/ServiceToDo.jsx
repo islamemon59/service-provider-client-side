@@ -27,13 +27,9 @@ const ServiceToDo = () => {
 
   return (
     <div className="max-w-7xl mx-auto relative">
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
-      <div className="md:mt-30 my-20">
+      <div className="my-26">
         <Suspense fallback={<Loader></Loader>}>
           <ServiceToDoPromise
-            setServices={setServices}
             services={services}
           ></ServiceToDoPromise>
         </Suspense>

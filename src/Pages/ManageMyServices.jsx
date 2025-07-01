@@ -26,9 +26,6 @@ const ManageMyServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
       <Suspense fallback={<Loader></Loader>}>
         <div className="md:mt-30 my-20">
           <MyServices

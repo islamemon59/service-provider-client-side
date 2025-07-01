@@ -50,12 +50,9 @@ const MyBookedServices = () => {
   };
 
   return (
-    <div className="relative max-w-7xl mx-auto">
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
-      <div className="w-full mx-auto mt-30 p-6 bg-base-100 shadow-xl rounded-2xl">
-        <h2 className="text-3xl font-bold text-center mb-6">
+    <div className="max-w-7xl mx-auto">
+      <div className="w-full mt-24 p-6 bg-base-100 shadow-xl rounded-2xl">
+        <h2 className="text-4xl font-bold text-primary text-center mb-6">
           Purchase Service
         </h2>
         <form onSubmit={handlePurchase} className="grid md:grid-cols-2 gap-6">

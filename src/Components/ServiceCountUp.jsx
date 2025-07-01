@@ -35,10 +35,10 @@ const ServiceCountUp = () => {
             delay: 0.5,
             ease: "easeOut",
           }}
-          className="text-center p-3 bg-primary/30 w-full text-secondary space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
+          className="text-center p-3 bg-primary/30 w-full text-base-content space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
         >
           <h3 className="md:text-xl text-lg font-semibold">OUR HAPPY</h3>
-          <p className="md:text-5xl text-2xl font-bold">
+          <p className="md:text-4xl text-2xl font-bold">
             <CountUp end={500} enableScrollSpy={true} suffix="+"></CountUp>
           </p>
           <p className="md:text-xl text-lg font-semibold">CUSTOMERS</p>
@@ -55,10 +55,10 @@ const ServiceCountUp = () => {
             delay: 1,
             ease: "easeOut",
           }}
-          className="text-center p-3 bg-primary/30 w-full text-secondary space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
+          className="text-center p-3 bg-primary/30 w-full text-base-content space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
         >
           <h3 className="md:text-xl text-lg font-semibold">BOOKED OVER</h3>
-          <p className="md:text-5xl text-2xl font-bold">
+          <p className="md:text-4xl text-2xl font-bold">
             <CountUp end={800} enableScrollSpy={true} suffix="+"></CountUp>
           </p>
           <p className="md:text-xl text-lg font-semibold">CLIENTS</p>
@@ -75,10 +75,10 @@ const ServiceCountUp = () => {
             delay: 1.5,
             ease: "easeOut",
           }}
-          className="text-center p-3 bg-primary/30 w-full text-secondary space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
+          className="text-center p-3 bg-primary/30 w-full text-base-content space-y-2 rounded-sm transform hover:-translate-y-2 transition-all duration-500 shadow-xl hover:shadow-2xl"
         >
           <h3 className="md:text-xl text-lg font-semibold">TOTAL SERVICE</h3>
-          <p className="md:text-5xl text-2xl font-bold">
+          <p className="md:text-4xl text-2xl font-bold">
             <CountUp end={1500} enableScrollSpy={true} suffix="+"></CountUp>
           </p>
           <p className="md:text-xl text-lg font-semibold">PROVIDED</p>

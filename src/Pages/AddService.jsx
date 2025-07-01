@@ -37,12 +37,8 @@ const AddService = () => {
   };
 
   return (
-    <div className="relative">
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
-      <div className="max-w-md mx-auto md:mt-36 mt-20 p-6 bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl">
-        <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
+      <div className="max-w-md mx-auto mt-26 p-6 bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl">
+        <h2 className="text-4xl font-bold text-center text-primary mb-6">Add New Service</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <label className="label text-xs">ImageURL</label>
           <input
@@ -88,7 +84,6 @@ const AddService = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 

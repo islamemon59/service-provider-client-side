@@ -7,7 +7,6 @@ const ServiceToDoCard = ({ service }) => {
     _id,
     date,
     image,
-    instruction,
     name,
     price,
     providerEmail,
@@ -16,113 +15,73 @@ const ServiceToDoCard = ({ service }) => {
     userEmail,
     userName,
   } = service;
+
   const axiosSecure = UseAxiosSecure();
-
   const [status, setStatus] = useState(serviceStatus);
-  const [dropdown, setDropdown] = useState(false);
 
-  const handleStatus = (Working) => {
+  const handleStatusChange = (newStatus) => {
     axiosSecure
       .patch(`https://service-provider-server-iota.vercel.app/status/${_id}`, {
-        serviceStatus: Working,
+        serviceStatus: newStatus,
       })
       .then((res) => {
         if (res.data.modifiedCount) {
-          setStatus(Working);
+          setStatus(newStatus);
         }
       });
   };
 
-  const handleDropdown = () => {
-    setDropdown(!dropdown);
-  };
-
   return (
-    <div className="w-full mx-auto my-6">
-      <div className="card bg-gradient-to-br h-full from-base-100 to-base-200/50 shadow-xl border border-base-300 hover:shadow-2xl transition duration-300">
-        <figure className="px-4 pt-4">
-          <img
-            src={image}
-            alt="AC Service"
-            className="rounded-xl h-52 object-cover w-full"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title text-xl font-bold text-blue-800">{name}</h2>
-
-          <div className="text-sm text-gray-600">
-            <p>
-              <span className="font-semibold">Date:</span> {date}
-            </p>
-            <p>
-              <span className="font-semibold">Price:</span> ৳{price}
-            </p>
-            <span className="font-semibold">
-              <div onClick={handleDropdown} className="dropdown">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="m-1 btn rounded-full"
-                >
-                  Status{" "}
-                  <span
-                    className={`${
-                      dropdown ? "rotate-180" : "rotate-0"
-                    } transition duration-300`}
-                  >
-                    <RiArrowDropDownLine size={20} />
-                  </span>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu text-base-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm"
-                >
-                  <li onClick={() => handleStatus("Pending")}>
-                    <a>Pending</a>
-                  </li>
-                  <li onClick={() => handleStatus("Working")}>
-                    <a>Working</a>
-                  </li>
-                  <li onClick={() => handleStatus("Completed")}>
-                    <a>Completed</a>
-                  </li>
-                </ul>
-              </div>
-            </span>
-            <span className="badge badge-warning text-xs">{status}</span>
+    <tr>
+      <td>
+        <img
+          src={image}
+          alt={name}
+          className="w-20 h-16 object-cover rounded"
+        />
+      </td>
+      <td className="font-semibold">{name}</td>
+      <td>{date}</td>
+      <td>৳{price}</td>
+      <td>
+        <div className="flex items-center gap-2">
+          {/* Dropdown */}
+          <div className="dropdown dropdown-bottom">
+            <label tabIndex={0} className="btn btn-xs btn-outline flex items-center gap-1 cursor-pointer">
+              Status <RiArrowDropDownLine size={18} />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-28 z-[100]"
+            >
+              <li>
+                <button onClick={() => handleStatusChange("Pending")}>Pending</button>
+              </li>
+              <li>
+                <button onClick={() => handleStatusChange("Working")}>Working</button>
+              </li>
+              <li>
+                <button onClick={() => handleStatusChange("Completed")}>Completed</button>
+              </li>
+            </ul>
           </div>
-
-          <div className="divider my-2"></div>
-
-          <div className="text-sm">
-            <p>
-              <span className="font-semibold">Customer:</span> {userName}
-            </p>
-            <p>
-              <span className="font-semibold">Email:</span>
-              {userEmail}
-            </p>
-          </div>
-
-          <div className="text-sm mt-2">
-            <p>
-              <span className="font-semibold">Provider:</span> {providerName}
-            </p>
-            <p>
-              <span className="font-semibold">Provider Email:</span>
-              {providerEmail}
-            </p>
-          </div>
-
-          <div className="mt-3 bg-base-200 p-2 rounded-md text-sm">
-            <p>
-              <span className="font-semibold">Instruction:</span>
-            </p>
-            <p>{instruction}</p>
-          </div>
+          {/* Current status badge */}
+          <span className="badge badge-warning text-xs capitalize">{status}</span>
         </div>
-      </div>
-    </div>
+      </td>
+      <td>
+        <div className="text-xs">
+          <p className="font-semibold">{userName}</p>
+          <p className="opacity-70 break-all">{userEmail}</p>
+        </div>
+      </td>
+      <td>
+        <div className="text-xs">
+          <p className="font-semibold">{providerName}</p>
+          <p className="opacity-70 break-all">{providerEmail}</p>
+        </div>
+      </td>
+    </tr>
   );
 };
 
