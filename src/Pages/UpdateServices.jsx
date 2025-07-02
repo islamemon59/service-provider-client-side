@@ -43,14 +43,14 @@ const UpdateServices = () => {
             icon: "success",
             draggable: true,
           });
-          navigate("/manageService");
+          navigate("/dashboard/manageService");
         }
       });
   };
 
   return (
     <div>
-      <div className="max-w-md mx-auto mt-24 p-6 bg-base-100 shadow-xl rounded-2xl">
+      <div className="max-w-md mx-auto my-10 p-6 bg-base-100 shadow-xl rounded-2xl">
         <h2 className="text-4xl font-bold text-center text-primary mb-6">
           Update Your Service
         </h2>

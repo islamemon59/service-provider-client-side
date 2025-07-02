@@ -6,7 +6,7 @@ const ServiceToDoPromise = ({ services }) => {
   return (
     <div className="max-w-7xl mx-auto px-4">
       {services.length === 0 ? (
-        <div className="mt-10 flex justify-center items-center flex-col">
+        <div className="flex justify-center items-center flex-col">
           <h1 className="text-center md:text-4xl font-bold text-3xl py-6 text-error">
             No one has booked any service yet
           </h1>

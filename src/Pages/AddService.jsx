@@ -37,7 +37,7 @@ const AddService = () => {
   };
 
   return (
-      <div className="max-w-md mx-auto mt-26 p-6 bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl">
+      <div className="max-w-md mx-auto my-10 p-6 bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl">
         <h2 className="text-4xl font-bold text-center text-primary mb-6">Add New Service</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <label className="label text-xs">ImageURL</label>

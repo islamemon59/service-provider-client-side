@@ -44,10 +44,12 @@ const ServiceDetails = () => {
         <div className="md:w-1/2 w-full flex flex-col space-y-6">
           {/* Service Intro */}
           <div className="space-y-3">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary">{name}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary">
+              {name}
+            </h2>
             <p className="text-base-content">
-              Get professional and reliable service at your doorstep. We ensure quality,
-              transparency, and satisfaction every time.
+              Get professional and reliable service at your doorstep. We ensure
+              quality, transparency, and satisfaction every time.
             </p>
             <span className="inline-block bg-primary text-base-100 px-3 py-1 rounded-md font-semibold">
               Price: ৳ {price}
@@ -56,7 +58,9 @@ const ServiceDetails = () => {
 
           {/* Provider Info */}
           <div className="space-y-2 border-t border-base-200 pt-4">
-            <h3 className="text-lg font-semibold text-primary">Service Provider</h3>
+            <h3 className="text-lg font-semibold text-primary">
+              Service Provider
+            </h3>
             <div className="flex items-center gap-4">
               <img
                 src={providerImage}
@@ -65,7 +69,9 @@ const ServiceDetails = () => {
               />
               <div>
                 <p className="text-base-content font-medium">{providerName}</p>
-                <p className="text-sm text-base-content opacity-70">{providerEmail}</p>
+                <p className="text-sm text-base-content opacity-70">
+                  {providerEmail}
+                </p>
                 <p className="text-sm text-base-content">
                   <span className="font-semibold">Area:</span> {area}
                 </p>
@@ -75,7 +81,9 @@ const ServiceDetails = () => {
 
           {/* Service Description */}
           <div className="space-y-2 border-t border-base-200 pt-4">
-            <h3 className="text-lg font-semibold text-primary">About This Service</h3>
+            <h3 className="text-lg font-semibold text-primary">
+              About This Service
+            </h3>
             <p className="text-base-content">{description}</p>
           </div>
 
@@ -83,7 +91,7 @@ const ServiceDetails = () => {
           <div className="pt-2">
             <Link
               onClick={() => scrollTo(0, 0)}
-              to={`/bookedServices/${_id}`}
+              to={`/dashboard/bookedServices/${_id}`}
               className="btn btn-primary px-6 py-2 rounded-full shadow hover:scale-105 transition-transform duration-500"
             >
               Book Now
@@ -94,45 +102,62 @@ const ServiceDetails = () => {
 
       {/* ✅ Customer Reviews */}
       <section className="max-w-7xl mx-auto my-16 px-4">
-        <h3 className="text-2xl font-semibold text-primary mb-6 text-center">What Our Customers Say</h3>
+        <h3 className="text-2xl font-semibold text-primary mb-6 text-center">
+          What Our Customers Say
+        </h3>
         <div className="grid md:grid-cols-3 gap-6">
-          {[1,2,3].map((review, idx) => (
-            <div key={idx} className="bg-base-100 p-4 rounded-xl shadow hover:shadow-lg transition">
+          {[1, 2, 3].map((review, idx) => (
+            <div
+              key={idx}
+              className="bg-base-100 p-4 rounded-xl shadow hover:shadow-lg transition"
+            >
               <div className="flex items-center gap-3 mb-3">
                 <img
-                  src={`https://randomuser.me/api/portraits/${idx % 2 === 0 ? "women" : "men"}/${30 + idx}.jpg`}
+                  src={`https://randomuser.me/api/portraits/${
+                    idx % 2 === 0 ? "women" : "men"
+                  }/${30 + idx}.jpg`}
                   alt="Customer"
                   className="w-12 h-12 rounded-full object-cover border-2 border-primary"
                 />
                 <div>
-                  <p className="font-semibold">Customer {idx+1}</p>
+                  <p className="font-semibold">Customer {idx + 1}</p>
                   <p className="text-sm text-secondary">Verified Review</p>
                 </div>
               </div>
               <p className="text-base-content">
-                “Fantastic service! Very professional and on time. Highly recommended.”
+                “Fantastic service! Very professional and on time. Highly
+                recommended.”
               </p>
             </div>
           ))}
         </div>
       </section>
 
-
       {/* ✅ FAQ */}
       <section className="max-w-4xl mx-auto my-16 px-4">
-        <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Frequently Asked Questions</h3>
+        <h3 className="text-2xl font-semibold text-primary mb-6 text-center">
+          Frequently Asked Questions
+        </h3>
         <div className="space-y-4">
           <div className="bg-base-100 p-4 rounded-xl shadow">
             <p className="font-semibold">1: How do I book a service?</p>
-            <p className="text-base-content">A: Simply click the “Book Now” button above and follow the steps.</p>
+            <p className="text-base-content">
+              A: Simply click the “Book Now” button above and follow the steps.
+            </p>
           </div>
           <div className="bg-base-100 p-4 rounded-xl shadow">
-            <p className="font-semibold">2: Are your service providers verified?</p>
-            <p className="text-base-content">B: Yes, every provider is vetted to ensure quality and trust.</p>
+            <p className="font-semibold">
+              2: Are your service providers verified?
+            </p>
+            <p className="text-base-content">
+              B: Yes, every provider is vetted to ensure quality and trust.
+            </p>
           </div>
           <div className="bg-base-100 p-4 rounded-xl shadow">
             <p className="font-semibold">3: Can I cancel after booking?</p>
-            <p className="text-base-content">C: Yes, cancellations are possible under our cancellation policy.</p>
+            <p className="text-base-content">
+              C: Yes, cancellations are possible under our cancellation policy.
+            </p>
           </div>
         </div>
       </section>

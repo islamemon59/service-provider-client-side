@@ -44,7 +44,7 @@ const MyBookedServices = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/myBooking");
+          navigate("/dashboard/myBooking");
         }
       });
   };

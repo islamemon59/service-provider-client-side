@@ -2,7 +2,6 @@ import { Link, NavLink, useNavigate } from "react-router";
 import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import { FaMoon, FaSun } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, signOutUser } = ContextHook();
@@ -31,18 +30,11 @@ const Navbar = () => {
     { to: "/contact", label: "Contact" },
   ];
 
-  const dashboardLinks = [
-    { to: "/addServices", label: "Add Service" },
-    { to: "/manageService", label: "Manage Service" },
-    { to: "/myBooking", label: "Booked Services" },
-    { to: "/serviceToDo", label: "Service To Do" },
-  ];
-
   return (
     <div className="fixed top-0 inset-x-0 z-50 bg-base-100 shadow-md">
       <div className="navbar max-w-7xl mx-auto px-2 h-20 flex justify-between items-center">
         {/* Start: Logo & mobile dropdown */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
           {/* Mobile menu */}
           <div className="dropdown lg:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -74,24 +66,7 @@ const Navbar = () => {
               ))}
               {user && (
                 <li>
-                  <details>
-                    <summary className="relative group">
-                      Dashboard
-                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </summary>
-                    <ul className="p-2">
-                      {dashboardLinks.map(({ to, label }) => (
-                        <li key={to}>
-                          <NavLink
-                            to={to}
-                            className="hover:bg-primary/10 rounded px-2 py-1"
-                          >
-                            {label}
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
               )}
             </ul>
@@ -116,26 +91,8 @@ const Navbar = () => {
               </NavLink>
             ))}
             {user && (
-              <li className="dropdown dropdown-hover">
-                <label tabIndex={0} className="relative group cursor-pointer">
-                  Dashboard
-                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content bg-base-100 rounded-box shadow-lg p-2 w-48"
-                >
-                  {dashboardLinks.map(({ to, label }) => (
-                    <li key={to}>
-                      <NavLink
-                        to={to}
-                        className="flex items-center gap-2 hover:bg-primary/10 rounded px-2 py-1"
-                      >
-                        {label}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
+              <li>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             )}
           </ul>
@@ -190,7 +147,7 @@ const Navbar = () => {
             <>
               <Link
                 to="/register"
-                className="relative text-primary font-semibold group"
+                className="relative text-primary text-xs font-semibold group"
               >
                 Register
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>

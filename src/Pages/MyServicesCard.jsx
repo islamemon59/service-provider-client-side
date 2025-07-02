@@ -4,15 +4,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const MyServicesCard = ({ service, services, setServices }) => {
-  const {
-    _id,
-    area,
-    imageUrl,
-    name,
-    price,
-    providerImage,
-    providerName,
-  } = service;
+  const { _id, area, imageUrl, name, price, providerImage, providerName } =
+    service;
 
   const handleDelete = () => {
     Swal.fire({
@@ -26,11 +19,17 @@ const MyServicesCard = ({ service, services, setServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://service-provider-server-iota.vercel.app/manageServices/${_id}`)
+          .delete(
+            `https://service-provider-server-iota.vercel.app/manageServices/${_id}`
+          )
           .then((res) => {
             if (res.data.deletedCount) {
               setServices(services.filter((s) => s._id !== _id));
-              Swal.fire("Deleted!", "Your service has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your service has been deleted.",
+                "success"
+              );
             }
           })
           .catch((err) => {
@@ -65,7 +64,7 @@ const MyServicesCard = ({ service, services, setServices }) => {
       </td>
       <td className="flex justify-center gap-2">
         <Link
-          to={`/updateServices/${_id}`}
+          to={`/dashboard/updateServices/${_id}`}
           className="btn btn-sm btn-primary flex items-center gap-1"
         >
           <FaEdit /> Update

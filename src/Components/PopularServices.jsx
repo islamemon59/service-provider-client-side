@@ -1,10 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 
 const PopularServices = ({ service }) => {
   const { _id, name, price, imageUrl } = service;
 
   return (
-    <div className="card w-full bg-base-100 shadow-xl mb-6 border border-base-300 hover:border-secondary hover:scale-105 transition duration-500">
+    <motion.div
+      className="card w-full bg-base-100 shadow-xl mb-6 border border-base-300 hover:border-secondary transition duration-500"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <figure>
         <img
           src={imageUrl}
@@ -13,14 +21,12 @@ const PopularServices = ({ service }) => {
         />
       </figure>
 
-      {/* Use flex-col to push button to bottom */}
       <div className="card-body flex flex-col">
         <h2 className="card-title text-sm md:text-base lg:text-lg font-semibold md:font-bold mb-2">
           {name}
           <div className="badge badge-primary text-base-content">৳{price}</div>
         </h2>
 
-        {/* Spacer to push button down */}
         <div className="flex-grow"></div>
 
         <div className="card-actions mt-2">
@@ -33,7 +39,7 @@ const PopularServices = ({ service }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

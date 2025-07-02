@@ -1,17 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { Suspense, useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import useTitle from "../Hooks/useTitle";
 import axios from "axios";
 import searchData from "../assets/search.json";
 import Lottie from "lottie-react";
-import Navbar from "../Shared/Navbar";
 import Loader from "../Shared/Loader";
+import { motion } from "framer-motion";
 
 const AllServices = () => {
   useTitle("Services");
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
-  const [searchQuery, setSearchQuery] = useState(""); // separate input value to control submit
+  const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +27,7 @@ const AllServices = () => {
   }, [search, sortOrder]);
 
   const handleSortChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
@@ -38,26 +39,32 @@ const AllServices = () => {
     return <Loader />;
   }
 
-  console.log(sortOrder);
-
   return (
     <div className="max-w-7xl mx-auto pt-30">
-      {/* Title & subtitle always on top */}
-      <div className="pt-6 space-y-3 text-center px-4">
+      {/* Animated Title & subtitle */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="pt-6 space-y-3 text-center px-4"
+      >
         <h2 className="text-3xl md:text-4xl text-primary font-bold">
           Our All Services Here
         </h2>
         <p className="md:text-lg text-base-content max-w-2xl mx-auto">
           Explore all our services in one place—tailored solutions, expert
-          support, and reliable delivery to meet every need with
-          professionalism, efficiency, and a commitment to complete customer
-          satisfaction.
+          support, and reliable delivery to meet every need with professionalism,
+          efficiency, and a commitment to complete customer satisfaction.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Search & Sort area */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 pb-8 px-4 mt-6">
-        {/* Sort button left */}
+      {/* Animated Search & Sort area */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex flex-col md:flex-row justify-between items-center gap-4 pb-8 px-4 mt-6"
+      >
         <button
           onClick={handleSortChange}
           className="btn btn-primary btn-sm w-full md:w-auto"
@@ -65,7 +72,6 @@ const AllServices = () => {
           Sort by Price: {sortOrder === "asc" ? "Low to High" : "High to Low"}
         </button>
 
-        {/* Search bar + button right */}
         <div className="flex items-center w-full md:w-auto gap-2">
           <input
             type="text"
@@ -82,24 +88,46 @@ const AllServices = () => {
             Search
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Cards or no results */}
       {services.length === 0 ? (
-        <div className="flex justify-center items-center flex-col min-h-96">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center items-center flex-col min-h-96"
+        >
           <h1 className="sm:text-5xl text-3xl font-bold text-base-300">
             No search result
           </h1>
           <Lottie style={{ width: "100px" }} animationData={searchData} />
-        </div>
+        </motion.div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-20 px-4">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-20 px-4"
+        >
           {services.map((service) => (
-            <Suspense key={service._id} fallback={<Loader />}>
-              <ServiceCard service={service} />
-            </Suspense>
+            <motion.div
+              key={service._id}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              <Suspense fallback={<Loader />}>
+                <ServiceCard service={service} />
+              </Suspense>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

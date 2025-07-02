@@ -16,8 +16,8 @@ const Home = () => {
   useTitle("Home");
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  },[])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -118,78 +118,99 @@ const Home = () => {
       </section>
 
       {/* Popular Services */}
-<section className="max-w-7xl mx-auto md:px-0 px-4 my-20">
-  {/* Heading */}
-  <motion.h1
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{
-      type: "tween",
-      bounce: 5,
-      stiffness: 150,
-      duration: 0.8,
-      delay: 0.5,
-      ease: "easeOut",
-    }}
-    className="md:text-4xl text-3xl text-center text-primary font-bold"
-  >
-    Our Popular Services
-  </motion.h1>
+      <section className="max-w-7xl mx-auto md:px-0 px-4 my-20">
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            type: "tween",
+            bounce: 5,
+            stiffness: 150,
+            duration: 0.8,
+            delay: 0.5,
+            ease: "easeOut",
+          }}
+          className="md:text-4xl text-3xl text-center text-primary font-bold"
+        >
+          Our Popular Services
+        </motion.h1>
 
-  {/* Subtitle */}
-  <motion.p
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{
-      type: "tween",
-      bounce: 5,
-      stiffness: 150,
-      duration: 0.8,
-      delay: 1,
-      ease: "easeOut",
-    }}
-    className="md:text-lg text-center text-base-content"
-  >
-    Our popular services offer expert solutions, reliable support, and <br />
-    customer satisfaction across diverse needs—delivering value, trust,
-    and excellence daily.
-  </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            type: "tween",
+            bounce: 5,
+            stiffness: 150,
+            duration: 0.8,
+            delay: 1,
+            ease: "easeOut",
+          }}
+          className="md:text-lg text-center text-base-content"
+        >
+          Our popular services offer expert solutions, reliable support, and{" "}
+          <br />
+          customer satisfaction across diverse needs—delivering value, trust,
+          and excellence daily.
+        </motion.p>
 
-  {/* Cards */}
-  <div className="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    {services.map((service) => (
-      <PopularServices key={service._id} service={service} />
-    ))}
-  </div>
+        {/* Cards */}
+        <motion.div
+          className="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+        >
+          {services.map((service) => (
+            <motion.div
+              key={service._id}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <PopularServices service={service} />
+            </motion.div>
+          ))}
+        </motion.div>
 
-  {/* See All link */}
-  <motion.div
-    initial={{ opacity: 0, x: -100 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{
-      type: "spring",
-      bounce: 5,
-      stiffness: 150,
-      duration: 0.5,
-      delay: 0.5,
-      ease: "easeOut",
-    }}
-    className="overflow-hidden text-center"
-  >
-    <Link
-      onClick={() => scrollTo(0, 0)}
-      to="/services"
-      className="relative text-primary font-semibold group"
-    >
-      See All
-      <span className="absolute h-1 w-0 bg-primary group-hover:w-full left-0 -bottom-1 transition-all duration-400"></span>
-    </Link>
-  </motion.div>
-</section>
-
+        {/* See All link */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            type: "spring",
+            bounce: 5,
+            stiffness: 150,
+            duration: 0.5,
+            delay: 0.5,
+            ease: "easeOut",
+          }}
+          className="overflow-hidden text-center"
+        >
+          <Link
+            onClick={() => scrollTo(0, 0)}
+            to="/services"
+            className="relative text-primary font-semibold group"
+          >
+            See All
+            <span className="absolute h-1 w-0 bg-primary group-hover:w-full left-0 -bottom-1 transition-all duration-400"></span>
+          </Link>
+        </motion.div>
+      </section>
 
       {/* Blog / Articles Section */}
       <section className="max-w-7xl mx-auto md:px-0 px-4 my-20">
@@ -405,7 +426,7 @@ const Home = () => {
       </section>
 
       {/* Contact */}
-      <section className="max-w-7xl mx-auto md:px-0 px-4 my-20">
+      <section className="max-w-7xl mx-auto md:px-0 px-4 mt-20">
         <ContactSection />
       </section>
     </div>

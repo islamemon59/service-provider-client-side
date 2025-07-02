@@ -26,10 +26,7 @@ const BookedServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto relative">
-      <div className="z-10 h-24 w-full max-w-7xl mx-auto inset-0 fixed">
-        <Navbar></Navbar>
-      </div>
-      <div className="md:mt-30 my-20">
+      <div className=" my-10">
         <Suspense fallback={<Loader></Loader>}>
           <MyAllBookedServices services={services}></MyAllBookedServices>
         </Suspense>

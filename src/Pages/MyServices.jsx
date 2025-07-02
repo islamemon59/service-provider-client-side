@@ -14,7 +14,7 @@ const MyServices = ({ services, setServices }) => {
         </div>
       ) : (
         <>
-          <h1 className="text-primary text-center text-3xl md:text-4xl font-bold mt-26 my-10">
+          <h1 className="text-primary text-center text-3xl md:text-4xl font-bold my-6">
             Manage Your Services
           </h1>
           <div className="overflow-x-auto rounded-lg shadow border border-base-300">

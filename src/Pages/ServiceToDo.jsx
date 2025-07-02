@@ -27,7 +27,7 @@ const ServiceToDo = () => {
 
   return (
     <div className="max-w-7xl mx-auto relative">
-      <div className="my-26">
+      <div className="my-10">
         <Suspense fallback={<Loader></Loader>}>
           <ServiceToDoPromise
             services={services}

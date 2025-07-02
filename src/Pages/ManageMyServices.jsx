@@ -27,7 +27,7 @@ const ManageMyServices = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <Suspense fallback={<Loader></Loader>}>
-        <div className="md:mt-30 my-20">
+        <div className="my-10">
           <MyServices
             setServices={setServices}
             services={services}

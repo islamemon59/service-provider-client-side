@@ -16,6 +16,8 @@ import BookedServices from "../Pages/BookedServices";
 import ServiceToDo from "../Pages/ServiceToDo";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
+import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
+import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +54,28 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/bookedServices/:id",
+        path: "/signIn",
+        Component: SignIn,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    Component: DashboardLayout,
+    children: [
+      {
+        path: "/dashboard",
+        Component: DashboardHome,
+        hydrateFallbackElement: <Loader />,
+        loader: () =>
+          fetch("https://service-provider-server-iota.vercel.app/allServices"),
+      },
+      {
+        path: "/dashboard/bookedServices/:id",
         element: (
           <PrivetRoute>
             <MyBookedServices></MyBookedServices>
@@ -60,7 +83,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manageService",
+        path: "/dashboard/manageService",
         element: (
           <PrivetRoute>
             <ManageMyServices></ManageMyServices>
@@ -68,7 +91,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateServices/:id",
+        path: "/dashboard/updateServices/:id",
         element: (
           <PrivetRoute>
             <UpdateServices></UpdateServices>
@@ -76,7 +99,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myBooking",
+        path: "/dashboard/myBooking",
         element: (
           <PrivetRoute>
             <BookedServices></BookedServices>
@@ -84,7 +107,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/serviceToDo",
+        path: "/dashboard/serviceToDo",
         element: (
           <PrivetRoute>
             <ServiceToDo></ServiceToDo>
@@ -92,20 +115,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addServices",
+        path: "/dashboard/addServices",
         element: (
           <PrivetRoute>
             <AddService></AddService>
           </PrivetRoute>
         ),
-      },
-      {
-        path: "/signIn",
-        Component: SignIn,
-      },
-      {
-        path: "/register",
-        Component: Register,
       },
     ],
   },
