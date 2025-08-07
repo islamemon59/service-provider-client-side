@@ -129,8 +129,8 @@ helpnest/
 
 ## 🔗 Additional Resources
 
-* 🔗 [Client Repository](https://github.com/your-username/helpnest-client)
-* 🔗 [Server Repository](https://github.com/your-username/helpnest-server)
+* 🔗 [Client Repository](https://github.com/islamemon59/service-provider-client-side)
+* 🔗 [Server Repository](https://github.com/islamemon59/service-provider-server-side)
 * 📘 Firebase Docs: [https://firebase.google.com/docs](https://firebase.google.com/docs)
 * 📘 MongoDB Docs: [https://www.mongodb.com/docs/](https://www.mongodb.com/docs/)
 
