@@ -87,7 +87,7 @@ HelpNest is a full-stack, role-based service provider web application designed t
 ### 🔧 Backend Setup:
 
 ```bash
-git clone https://github.com/your-username/helpnest-server
+git clone https://github.com/islamemon59/service-provider-server-side.git
 cd helpnest-server
 npm install
 ```
@@ -101,7 +101,7 @@ JWT_SECRET=your_jwt_secret
 ```
 
 ```bash
-npm run dev
+nodemon index.js
 ```
 
 ---
