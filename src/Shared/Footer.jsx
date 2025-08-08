@@ -7,11 +7,13 @@ const Footer = () => {
     <footer className="bg-primary text-base-200">
       <footer className="footer sm:footer-horizontal bg-transparent text-base-100 p-10 max-w-7xl mx-auto">
         <aside>
-          <img
-            className="w-[200px]"
-            src="https://i.ibb.co/WNsbkrCX/edit-logo.png"
-            alt="logo"
-          />
+          <Link to="/">
+            <img
+              className="w-[200px]"
+              src="https://i.ibb.co/WNsbkrCX/edit-logo.png"
+              alt="logo"
+            />
+          </Link>
           <p>
             We Provide Home Service
             <br />
@@ -20,8 +22,12 @@ const Footer = () => {
         </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
-          <Link to="/" className="link link-hover">Home</Link>
-          <Link to="services" className="link link-hover">Service</Link>
+          <Link to="/" className="link link-hover">
+            Home
+          </Link>
+          <Link to="services" className="link link-hover">
+            Service
+          </Link>
           <Link className="link link-hover">Marketing</Link>
           <Link className="link link-hover">Advertisement</Link>
         </nav>
