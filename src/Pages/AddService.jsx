@@ -1,8 +1,6 @@
-import React from "react";
 import ContextHook from "../Hooks/ContextHook";
 import Swal from "sweetalert2";
 import useTitle from "../Hooks/useTitle";
-import Navbar from "../Shared/Navbar";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const AddService = () => {
@@ -14,7 +12,7 @@ const AddService = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newService = Object.fromEntries(formData.entries());
+    const newService = Object.fromEntries(formData.entries())
     newService.providerName = user?.displayName;
     newService.providerEmail = user?.email;
     newService.providerImage = user?.photoURL;

@@ -87,7 +87,7 @@ const ServiceDetails = () => {
             <p className="text-base-content">{description}</p>
           </div>
 
-          {/* Book Button */}
+
           <div className="pt-2">
             <Link
               onClick={() => scrollTo(0, 0)}
@@ -100,7 +100,6 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      {/* ✅ Customer Reviews */}
       <section className="max-w-7xl mx-auto my-16 px-4">
         <h3 className="text-2xl font-semibold text-primary mb-6 text-center">
           What Our Customers Say
