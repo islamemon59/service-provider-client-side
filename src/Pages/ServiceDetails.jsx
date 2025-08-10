@@ -56,7 +56,6 @@ const ServiceDetails = () => {
             </span>
           </div>
 
-          {/* Provider Info */}
           <div className="space-y-2 border-t border-base-200 pt-4">
             <h3 className="text-lg font-semibold text-primary">
               Service Provider
@@ -79,14 +78,12 @@ const ServiceDetails = () => {
             </div>
           </div>
 
-          {/* Service Description */}
           <div className="space-y-2 border-t border-base-200 pt-4">
             <h3 className="text-lg font-semibold text-primary">
               About This Service
             </h3>
             <p className="text-base-content">{description}</p>
           </div>
-
 
           <div className="pt-2">
             <Link
